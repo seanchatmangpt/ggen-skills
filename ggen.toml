@@ -9,11 +9,6 @@ source = "manufacturing/ontology/skill-content.ttl"
 [generation]
 output_dir = "."
 
-[inference]
-rules = [
-  { name = "normalize", construct = "CONSTRUCT { ?s ?p ?o } WHERE { ?s ?p ?o }" }
-]
-
 [[generation.rules]]
 name = "skill-projections"
 query = { inline = """
