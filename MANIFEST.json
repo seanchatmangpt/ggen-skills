@@ -1,0 +1,39 @@
+{
+  "schema": "ggen.skills.manifest.v26.8.31",
+  "version": "26.8.31",
+  "status": "candidate",
+  "purpose": "DfCM-maximal, evidence-bounded adaptation of APS into composable portable Agent Skills.",
+  "authority": {
+    "sourceLock": "SOURCE.lock.json",
+    "skillGraph": "ontology/ggen-skills.ttl",
+    "agentConstitution": "AGENTS.md",
+    "skills": "skills/*/SKILL.md",
+    "verifier": "tools/verify.py"
+  },
+  "standingVocabulary": [
+    "UNKNOWN",
+    "PARTIAL_ALIVE",
+    "ALIVE",
+    "BLOCKED",
+    "BUILD_BROKEN",
+    "UNSUPPORTED",
+    "REFUSED"
+  ],
+  "governingInvariants": [
+    "Preserve truth before replacing structure.",
+    "Zero uninformed elimination.",
+    "Contract before mechanism.",
+    "Maximize reversible lawful candidate space.",
+    "SELECT, CONSTRUCT, and DO are separate authority classes.",
+    "No ambient DO authority.",
+    "Zero unreceipted actuation.",
+    "Inspection is not execution.",
+    "Exact identity precedes standing.",
+    "Novel qualified mechanisms should be promoted into reusable knowledge."
+  ],
+  "nonClaims": [
+    "Repository conformance does not grant production actuation authority.",
+    "Skill text does not prove its operational claims until executed against an admitted subject.",
+    "The presence of a ggen-first skill does not prove that this repository has already been manufactured by ggen."
+  ]
+}
