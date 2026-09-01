@@ -65,11 +65,10 @@ jobs:
             rm -f "$tmp"
           done
 
-      - name: Resolve exact pinned ggen manufacturer
+      - name: Load exact pinned ggen manufacturer coordinate
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p evidence/manufacturer
           python3 - <<'PY' >> "$GITHUB_ENV"
           import json
           from pathlib import Path
@@ -80,6 +79,12 @@ jobs:
           print(f"GGEN_ASSET={m['asset']}")
           print(f"GGEN_ASSET_SHA256={m['assetSha256']}")
           PY
+
+      - name: Resolve exact pinned ggen manufacturer
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p evidence/manufacturer
           release_dir="$RUNNER_TEMP/ggen-release"
           mkdir -p "$release_dir"
           asset="$RUNNER_TEMP/$GGEN_ASSET"
