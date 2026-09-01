@@ -1,0 +1,28 @@
+# MESSAGE: every ggen-skills Skill must carry the complete portable constitutional contract before projection.
+PREFIX gsk: <https://w3id.org/chatman/ggen-skills#>
+SELECT ?skill
+WHERE {
+  ?skill a gsk:Skill .
+  OPTIONAL { ?skill gsk:skillName ?name . }
+  OPTIONAL { ?skill gsk:title ?title . }
+  OPTIONAL { ?skill gsk:description ?description . }
+  OPTIONAL { ?skill gsk:whenToUse ?when_to_use . }
+  OPTIONAL { ?skill gsk:law ?law . }
+  OPTIONAL { ?skill gsk:procedure ?procedure . }
+  OPTIONAL { ?skill gsk:authorityClass ?authority_class . }
+  OPTIONAL { ?skill gsk:authorityBoundary ?authority_boundary . }
+  OPTIONAL { ?skill gsk:evidence ?evidence . }
+  OPTIONAL { ?skill gsk:falsifiers ?falsifiers . }
+  OPTIONAL { ?skill gsk:composition ?composition . }
+  OPTIONAL { ?skill gsk:standingRule ?standing_rule . }
+  OPTIONAL { ?skill gsk:sourceCoordinate ?source_coordinate . }
+  OPTIONAL { ?skill gsk:sourcePath ?source_path . }
+  FILTER (
+    !BOUND(?name) || !BOUND(?title) || !BOUND(?description) ||
+    !BOUND(?when_to_use) || !BOUND(?law) || !BOUND(?procedure) ||
+    !BOUND(?authority_class) || !BOUND(?authority_boundary) ||
+    !BOUND(?evidence) || !BOUND(?falsifiers) || !BOUND(?composition) ||
+    !BOUND(?standing_rule) || !BOUND(?source_coordinate) || !BOUND(?source_path)
+  )
+}
+ORDER BY ?skill

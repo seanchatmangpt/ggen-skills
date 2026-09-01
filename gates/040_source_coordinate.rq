@@ -1,0 +1,9 @@
+# MESSAGE: every skill must remain bound to the admitted APS source coordinate.
+PREFIX gsk: <https://w3id.org/chatman/ggen-skills#>
+SELECT ?skill ?coordinate
+WHERE {
+  ?skill a gsk:Skill ;
+         gsk:sourceCoordinate ?coordinate .
+  FILTER (?coordinate != "seanchatmangpt/agile-protocol-specification@b5916330905195b124409ca0e857f43b897ffc80")
+}
+ORDER BY ?skill

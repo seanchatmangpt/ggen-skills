@@ -1,0 +1,10 @@
+# MESSAGE: skill names must be globally unique because each name deterministically selects one output path.
+PREFIX gsk: <https://w3id.org/chatman/ggen-skills#>
+SELECT ?name
+WHERE {
+  ?skill a gsk:Skill ;
+         gsk:skillName ?name .
+}
+GROUP BY ?name
+HAVING (COUNT(?skill) > 1)
+ORDER BY ?name

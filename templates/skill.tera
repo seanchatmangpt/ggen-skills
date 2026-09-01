@@ -1,0 +1,46 @@
+---
+name: {{ name }}
+description: {{ description }}
+---
+
+# {{ title }}
+
+## When to use
+
+{{ when_to_use }}
+
+## Law
+
+{{ law }}
+
+## Procedure
+
+{{ procedure }}
+
+## Authority boundary
+
+Authority class: `{{ authority_class }}`
+
+{{ authority_boundary }}
+
+## Evidence
+
+{{ evidence }}
+
+## Falsifiers
+
+{{ falsifiers }}
+
+## Composition
+
+{{ composition }}
+
+## Standing
+
+{{ standing_rule }}
+
+## Source
+
+Adapted from `{{ source_coordinate }}` at `{{ source_path }}`.
+
+This file is a GGen projection. Edit the semantic source or manufacturing law, then run `ggen sync run`; do not hand-edit this projection.

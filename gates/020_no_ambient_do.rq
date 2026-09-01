@@ -1,0 +1,6 @@
+# MESSAGE: portable skills may classify or govern DO but no skill entity may carry ambient DO authority.
+PREFIX gsk: <https://w3id.org/chatman/ggen-skills#>
+ASK {
+  ?skill a gsk:Skill ;
+         gsk:authorityClass "DO" .
+}

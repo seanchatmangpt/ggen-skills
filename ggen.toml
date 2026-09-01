@@ -1,0 +1,52 @@
+[project]
+name = "ggen-skills"
+version = "26.9.1"
+description = "Portable APS-derived Agent Skills manufactured from semantic source"
+
+[ontology]
+source = "ontology/skills.ttl"
+imports = ["ontology/aps-core.ttl", "ontology/skills-protocol-kernel.ttl", "ontology/skills-manufacture-actuation.ttl", "ontology/skills-epistemics-governance.ttl", "ontology/skills-meta.ttl"]
+
+[generation]
+output_dir = "."
+require_audit_trail = true
+enable_llm = false
+
+[[generation.rules]]
+name = "portable-aps-skill"
+query = { inline = """
+PREFIX gsk: <https://w3id.org/chatman/ggen-skills#>
+SELECT ?name ?title ?description ?when_to_use ?law ?procedure
+       ?authority_class ?authority_boundary ?evidence ?falsifiers
+       ?composition ?standing_rule ?source_coordinate ?source_path
+WHERE {
+  ?skill a gsk:Skill ;
+         gsk:skillName ?name ;
+         gsk:title ?title ;
+         gsk:description ?description ;
+         gsk:whenToUse ?when_to_use ;
+         gsk:law ?law ;
+         gsk:procedure ?procedure ;
+         gsk:authorityClass ?authority_class ;
+         gsk:authorityBoundary ?authority_boundary ;
+         gsk:evidence ?evidence ;
+         gsk:falsifiers ?falsifiers ;
+         gsk:composition ?composition ;
+         gsk:standingRule ?standing_rule ;
+         gsk:sourceCoordinate ?source_coordinate ;
+         gsk:sourcePath ?source_path .
+}
+ORDER BY ?name
+""" }
+template = { file = "templates/skill.tera" }
+output_file = "skills/{{name}}/SKILL.md"
+mode = "Overwrite"
+
+[validation]
+strict_mode = true
+gates = [
+  "gates/010_required_skill_contract.rq",
+  "gates/020_no_ambient_do.rq",
+  "gates/030_unique_skill_names.rq",
+  "gates/040_source_coordinate.rq",
+]
