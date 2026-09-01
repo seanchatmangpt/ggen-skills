@@ -1,0 +1,63 @@
+@prefix gs: <https://example.org/ggen-skills#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+gs:Skill a skos:Concept .
+gs:composes a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+gs:precedes a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+gs:authorityClass a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+
+gs:aps_protocol a gs:Skill ; dct:identifier "aps-protocol" ; skos:prefLabel "aps-protocol" ; dct:description "Apply the complete APS knowledge-work reconstitution state machine" .
+gs:capability_orientation a gs:Skill ; dct:identifier "capability-orientation" ; skos:prefLabel "capability-orientation" ; dct:description "Orient a repository or execution environment before planning changes" .
+gs:preserve_fence a gs:Skill ; dct:identifier "preserve-fence" ; skos:prefLabel "preserve-fence" ; dct:description "Recover the reason, behavior, contract, evidence, and boundary behind an existing structure before removing or replacing it" .
+gs:source_admission a gs:Skill ; dct:identifier "source-admission" ; skos:prefLabel "source-admission" ; dct:description "Pin source identity and admit bounded knowledge before derivation" .
+gs:observe_admit a gs:Skill ; dct:identifier "observe-admit" ; skos:prefLabel "observe-admit" ; dct:description "Convert raw observations into admitted bounded knowledge O*" .
+gs:contract_first a gs:Skill ; dct:identifier "contract-first" ; skos:prefLabel "contract-first" ; dct:description "Define semantic subjects, invariants, preconditions, postconditions, refusals, authority, idempotency, resource bounds, evidence, compatibility, and standing before choosing implementation" .
+gs:dfcm a gs:Skill ; dct:identifier "dfcm" ; skos:prefLabel "dfcm" ; dct:description "Design for Combinatorial Maximalism" .
+gs:adversarial_requirements a gs:Skill ; dct:identifier "adversarial-requirements" ; skos:prefLabel "adversarial-requirements" ; dct:description "Turn credible criticism, objections, threat models, and skeptical reviews into candidate falsifiers before converting them into requirements" .
+gs:ggen_first a gs:Skill ; dct:identifier "ggen-first" ; skos:prefLabel "ggen-first" ; dct:description "Prefer deterministic ggen-style manufacture and accumulated executable knowledge over repeated handwritten projection" .
+gs:select_construct_do a gs:Skill ; dct:identifier "select-construct-do" ; skos:prefLabel "select-construct-do" ; dct:description "Maintain strict separation between SELECT, CONSTRUCT, and DO" .
+gs:brce_boundary a gs:Skill ; dct:identifier "brce-boundary" ; skos:prefLabel "brce-boundary" ; dct:description "Broker consequential execution through an explicit bounded receipt-carrying execution boundary" .
+gs:evidence_receipts a gs:Skill ; dct:identifier "evidence-receipts" ; skos:prefLabel "evidence-receipts" ; dct:description "Design and inspect evidence receipts that bind identity, authority, execution, consequence, replay, and standing" .
+gs:exact_head_verification a gs:Skill ; dct:identifier "exact-head-verification" ; skos:prefLabel "exact-head-verification" ; dct:description "Verify the exact candidate identity rather than a branch-adjacent, stale, or predecessor state" .
+gs:replay_standing a gs:Skill ; dct:identifier "replay-standing" ; skos:prefLabel "replay-standing" ; dct:description "Replay a prior consequence or verification capsule and assign bounded standing" .
+gs:reconstitution a gs:Skill ; dct:identifier "reconstitution" ; skos:prefLabel "reconstitution" ; dct:description "Rebuild a useful capability from admitted truth rather than preserving incumbent structure" .
+gs:rice_boundary a gs:Skill ; dct:identifier "rice-boundary" ; skos:prefLabel "rice-boundary" ; dct:description "Apply Rice’s Theorem as an epistemic boundary for nontrivial semantic claims about arbitrary programs" .
+gs:jig_maturity a gs:Skill ; dct:identifier "jig-maturity" ; skos:prefLabel "jig-maturity" ; dct:description "Assess manufacturing maturity as five levels across seven independent dimensions" .
+gs:process_intelligence a gs:Skill ; dct:identifier "process-intelligence" ; skos:prefLabel "process-intelligence" ; dct:description "Model consequential work as object-centric process evidence for conformance, variants, bottlenecks, rework, authority exceptions, failure propagation, economics, and process fitness" .
+gs:governance_compression a gs:Skill ; dct:identifier "governance-compression" ; skos:prefLabel "governance-compression" ; dct:description "Compress governance by validating bounded source classes and manufacturing law rather than manually reviewing every derived artifact" .
+gs:skill_creator_dfcm a gs:Skill ; dct:identifier "skill-creator-dfcm" ; skos:prefLabel "skill-creator-dfcm" ; dct:description "Create or redesign an Agent Skill using APS and DfCM" .
+gs:skill_composer a gs:Skill ; dct:identifier "skill-composer" ; skos:prefLabel "skill-composer" ; dct:description "Compose multiple Agent Skills into a workflow while preserving each skill’s contract and authority boundary" .
+gs:skill_auditor a gs:Skill ; dct:identifier "skill-auditor" ; skos:prefLabel "skill-auditor" ; dct:description "Audit an Agent Skill or skill repository for trigger quality, overlap, authority leakage, unverifiable claims, portability, evidence discipline, replay, and composition quality" .
+gs:skill_falsifier a gs:Skill ; dct:identifier "skill-falsifier" ; skos:prefLabel "skill-falsifier" ; dct:description "Manufacture adversarial examples, counterexamples, sabotage fixtures, and negative trigger cases for a skill or composed workflow" .
+gs:skill_qualifier a gs:Skill ; dct:identifier "skill-qualifier" ; skos:prefLabel "skill-qualifier" ; dct:description "Qualify a skill against its exact version using trigger, procedural, authority, and consequence evidence" .
+gs:skill_promoter a gs:Skill ; dct:identifier "skill-promoter" ; skos:prefLabel "skill-promoter" ; dct:description "Promote a qualified novel mechanism, workflow, falsifier, or domain pattern into reusable skill/manufacturing knowledge" .
+gs:capability_orientation gs:precedes gs:preserve_fence .
+gs:preserve_fence gs:precedes gs:source_admission .
+gs:source_admission gs:precedes gs:observe_admit .
+gs:observe_admit gs:precedes gs:contract_first .
+gs:contract_first gs:precedes gs:dfcm .
+gs:dfcm gs:precedes gs:select_construct_do .
+gs:select_construct_do gs:precedes gs:brce_boundary .
+gs:brce_boundary gs:precedes gs:evidence_receipts .
+gs:evidence_receipts gs:precedes gs:exact_head_verification .
+gs:exact_head_verification gs:precedes gs:replay_standing .
+gs:replay_standing gs:precedes gs:reconstitution .
+gs:aps_protocol gs:composes gs:capability_orientation .
+gs:aps_protocol gs:composes gs:preserve_fence .
+gs:aps_protocol gs:composes gs:source_admission .
+gs:aps_protocol gs:composes gs:observe_admit .
+gs:aps_protocol gs:composes gs:contract_first .
+gs:aps_protocol gs:composes gs:dfcm .
+gs:aps_protocol gs:composes gs:adversarial_requirements .
+gs:aps_protocol gs:composes gs:ggen_first .
+gs:aps_protocol gs:composes gs:select_construct_do .
+gs:aps_protocol gs:composes gs:brce_boundary .
+gs:aps_protocol gs:composes gs:evidence_receipts .
+gs:aps_protocol gs:composes gs:exact_head_verification .
+gs:aps_protocol gs:composes gs:replay_standing .
+gs:aps_protocol gs:composes gs:reconstitution .
+gs:select_construct_do gs:authorityClass "SELECT|CONSTRUCT|DO" .
+gs:brce_boundary gs:authorityClass "DO" .

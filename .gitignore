@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.DS_Store
+.ggen-v2/
+.ggen/
+artifacts/
+manufacturing/ontology/skill-content.ttl

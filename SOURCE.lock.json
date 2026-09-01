@@ -1,0 +1,11 @@
+{
+  "schema": "ggen.skills.source-lock.v1",
+  "adaptedFrom": {
+    "repository": "seanchatmangpt/agile-protocol-specification",
+    "commit": "b5916330905195b124409ca0e857f43b897ffc80",
+    "tree": "89ff10c6f6f0ada0658f01c268c6568723ba3c1c",
+    "version": "26.8.24"
+  },
+  "adaptationDate": "2026-08-31",
+  "policy": "Source identity is evidence. Moving APS main does not silently move this adaptation."
+}

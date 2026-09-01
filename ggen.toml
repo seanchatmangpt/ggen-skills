@@ -1,0 +1,44 @@
+[project]
+name = "ggen-skills"
+version = "26.8.31"
+description = "Deterministic reconstitution of the admitted APS-derived skill corpus"
+
+[ontology]
+source = "manufacturing/ontology/skill-content.ttl"
+
+[generation]
+output_dir = "."
+
+[[generation.rules]]
+name = "skill-projections"
+query = { inline = """
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+SELECT ?name ?content WHERE {
+  ?skill a prov:Entity ;
+         dcterms:type "SKILL" ;
+         dcterms:identifier ?name ;
+         dcterms:abstract ?content .
+}
+ORDER BY ?name
+""" }
+template = { file = "manufacturing/templates/verbatim.tera" }
+output_file = "skills/{{ name }}/SKILL.md"
+mode = "Overwrite"
+
+[[generation.rules]]
+name = "project-documents"
+query = { inline = """
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+SELECT ?path ?content WHERE {
+  ?document a prov:Entity ;
+            dcterms:type "PROJECT_DOCUMENT" ;
+            dcterms:identifier ?path ;
+            dcterms:abstract ?content .
+}
+ORDER BY ?path
+""" }
+template = { file = "manufacturing/templates/verbatim.tera" }
+output_file = "{{ path }}"
+mode = "Overwrite"
