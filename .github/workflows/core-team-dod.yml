@@ -1,0 +1,129 @@
+name: Core Team DoD
+
+on:
+  pull_request:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: core-team-dod-${{ github.repository }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  chicago:
+    name: Exact-head Chicago manufacture
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      GGEN_RELEASE: v26.8.27
+      GGEN_ASSET: ggen-x86_64-unknown-linux-gnu.tar.gz
+      GGEN_ASSET_SHA256: ab442ced90a9836fd4eb07a5d61eb58293843cd515d864699fc0d0453444a035
+      EXPECTED_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+
+    steps:
+      - name: Checkout exact candidate
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Bind exact subject
+        run: |
+          set -euo pipefail
+          actual="$(git rev-parse HEAD)"
+          test "$actual" = "$EXPECTED_SHA" || {
+            echo "REFUSED[EXACT_HEAD_MISMATCH]: expected=$EXPECTED_SHA actual=$actual" >&2
+            exit 2
+          }
+          mkdir -p artifacts/core-team-dod
+          printf '%s\n' "$actual" > artifacts/core-team-dod/subject-sha.txt
+
+      - name: Doctor source and admission contracts
+        run: |
+          set -euo pipefail
+          python3 scripts/verify_repo.py source | tee artifacts/core-team-dod/doctor.log
+
+      - name: Install pinned GGen producer
+        run: |
+          set -euo pipefail
+          url="https://github.com/seanchatmangpt/ggen/releases/download/${GGEN_RELEASE}/${GGEN_ASSET}"
+          curl --fail --silent --show-error --location "$url" --output "$RUNNER_TEMP/$GGEN_ASSET"
+          printf '%s  %s\n' "$GGEN_ASSET_SHA256" "$RUNNER_TEMP/$GGEN_ASSET" | sha256sum --check
+          mkdir -p "$RUNNER_TEMP/ggen-bin"
+          tar -xzf "$RUNNER_TEMP/$GGEN_ASSET" -C "$RUNNER_TEMP/ggen-bin"
+          producer="$(find "$RUNNER_TEMP/ggen-bin" -type f -name ggen -perm -u+x -print -quit)"
+          test -n "$producer" || { echo "BUILD_BROKEN[GGEN_BINARY_MISSING]" >&2; exit 3; }
+          printf '%s\n' "$(dirname "$producer")" >> "$GITHUB_PATH"
+          "$producer" --version | tee artifacts/core-team-dod/ggen-version.txt
+
+      - name: Manufacture first consequence
+        run: |
+          set -euo pipefail
+          ggen sync run 2>&1 | tee artifacts/core-team-dod/sync-1.log
+          if test -f .ggen-v2/receipt.json; then cp .ggen-v2/receipt.json artifacts/core-team-dod/ggen-receipt-1.json; fi
+          ggen receipt verify --format json | tee artifacts/core-team-dod/receipt-verify-1.json
+          python3 scripts/verify_repo.py generated | tee artifacts/core-team-dod/generated-verify-1.log
+          snapshot="$(python3 scripts/verify_repo.py snapshot)"
+          printf '%s\n' "$snapshot" | tee artifacts/core-team-dod/snapshot-1.sha256
+          printf 'SNAPSHOT1=%s\n' "$snapshot" >> "$GITHUB_ENV"
+
+      - name: Replay manufacture and prove byte identity
+        run: |
+          set -euo pipefail
+          ggen sync run 2>&1 | tee artifacts/core-team-dod/sync-2.log
+          if test -f .ggen-v2/receipt.json; then cp .ggen-v2/receipt.json artifacts/core-team-dod/ggen-receipt-2.json; fi
+          ggen receipt verify --format json | tee artifacts/core-team-dod/receipt-verify-2.json
+          python3 scripts/verify_repo.py generated | tee artifacts/core-team-dod/generated-verify-2.log
+          snapshot="$(python3 scripts/verify_repo.py snapshot)"
+          printf '%s\n' "$snapshot" | tee artifacts/core-team-dod/snapshot-2.sha256
+          test "$SNAPSHOT1" = "$snapshot" || { echo "REFUSED[NON_DETERMINISTIC_REPLAY]: first=$SNAPSHOT1 second=$snapshot" >&2; exit 2; }
+          printf 'SNAPSHOT2=%s\n' "$snapshot" >> "$GITHUB_ENV"
+
+      - name: Execute falsifiers
+        run: |
+          set -euo pipefail
+          python3 scripts/verify_repo.py falsify | tee artifacts/core-team-dod/falsify.log
+
+      - name: Bind consequence and replay receipt
+        run: |
+          set -euo pipefail
+          git diff --check
+          git status --short > artifacts/core-team-dod/git-status.txt
+          git diff --binary -- AGENTS.md README.md projections generated > artifacts/core-team-dod/generated.patch
+          tar -czf artifacts/core-team-dod/generated-projections.tar.gz AGENTS.md README.md projections generated
+          python3 - <<'PY'
+          import hashlib, json, os
+          from pathlib import Path
+          evidence = Path("artifacts/core-team-dod")
+          def sha256(path):
+              h = hashlib.sha256()
+              with Path(path).open("rb") as fh:
+                  for chunk in iter(lambda: fh.read(1024 * 1024), b""): h.update(chunk)
+              return h.hexdigest()
+          receipt = {
+              "schema": "https://seanchatmangpt.github.io/ggen-skills/receipts/core-team-dod/v1",
+              "repository": os.environ["GITHUB_REPOSITORY"], "subject_sha": os.environ["EXPECTED_SHA"],
+              "run_id": os.environ["GITHUB_RUN_ID"], "run_attempt": os.environ["GITHUB_RUN_ATTEMPT"],
+              "producer": {"release": os.environ["GGEN_RELEASE"], "asset": os.environ["GGEN_ASSET"], "asset_sha256": os.environ["GGEN_ASSET_SHA256"]},
+              "source_lock_sha256": sha256("sources.lock.toml"),
+              "projection_snapshot_first": os.environ["SNAPSHOT1"], "projection_snapshot_second": os.environ["SNAPSHOT2"],
+              "replay_identical": os.environ["SNAPSHOT1"] == os.environ["SNAPSHOT2"],
+              "commands": ["python3 scripts/verify_repo.py source", "ggen sync run", "ggen receipt verify --format json", "python3 scripts/verify_repo.py generated", "python3 scripts/verify_repo.py snapshot", "ggen sync run", "ggen receipt verify --format json", "python3 scripts/verify_repo.py generated", "python3 scripts/verify_repo.py snapshot", "python3 scripts/verify_repo.py falsify"],
+              "standing": {"manufacturing_rail": "ALIVE", "individual_skill_behavior": "PARTIAL_ALIVE", "external_actuation": "REFUSED:NO_AUTHORITY"}
+          }
+          (evidence / "receipt.json").write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n")
+          PY
+          (cd artifacts/core-team-dod && sha256sum -- * > SHA256SUMS)
+
+      - name: Upload exact-head replay evidence
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: core-team-dod-${{ github.run_id }}-${{ github.run_attempt }}
+          path: artifacts/core-team-dod/
+          retention-days: 14

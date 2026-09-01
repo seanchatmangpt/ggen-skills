@@ -1,0 +1,11 @@
+{
+  "schema": "https://seanchatmangpt.github.io/ggen-skills/registry/v1",
+  "projections": [
+{% for row in results %}    {
+      "skill": "{{ row.name }}",
+      "runtime": "{{ row.runtime }}",
+      "effect": "{{ row.effect }}",
+      "authority": "{{ row.authority }}"
+    }{% if not loop.last %},{% endif %}
+{% endfor %}  ]
+}

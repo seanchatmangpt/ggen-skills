@@ -1,0 +1,22 @@
+version = 1
+bootstrap_base_sha = "2dfca018fb657bcc883bc0b51ad5f4192c810583"
+
+[ggen]
+repository = "https://github.com/seanchatmangpt/ggen"
+source_commit = "36caa86eba04de0eae1769e71142df86fd370854"
+release = "v26.8.27"
+linux_x86_64_asset = "ggen-x86_64-unknown-linux-gnu.tar.gz"
+linux_x86_64_asset_sha256 = "ab442ced90a9836fd4eb07a5d61eb58293843cd515d864699fc0d0453444a035"
+
+[discovery.voltagent]
+repository = "https://github.com/VoltAgent/awesome-agent-skills"
+commit = "5e1f3aebcf5de90b5b11fb35a607f95bdddf987e"
+role = "observation-corpus-only"
+standing = "UNKNOWN"
+
+[seed.ggen_skills]
+repository = "https://github.com/seanchatmangpt/ggen"
+commit = "36caa86eba04de0eae1769e71142df86fd370854"
+path = "ggen-skills"
+role = "observed-prior-artifacts-not-authority"
+standing = "UNKNOWN"

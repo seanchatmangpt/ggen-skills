@@ -1,0 +1,36 @@
+{
+  "alive_requires": [
+    "exact_subject_sha",
+    "source_admission",
+    "pinned_ggen_identity",
+    "real_ggen_sync_run",
+    "generated_consequence_verification",
+    "ggen_receipt_verify",
+    "second_sync",
+    "byte_identical_replay",
+    "exact_subject_receipt_binding",
+    "exact_head_ci"
+  ],
+  "claim": "manufacturing-rail",
+  "gates": [
+    {"command": "git rev-parse HEAD", "evidence": "exact SHA", "id": "exact-subject"},
+    {"command": "python3 scripts/verify_repo.py source", "evidence": "source admission", "id": "doctor"},
+    {"command": "sha256sum -c", "evidence": "pinned GGen release asset", "id": "producer"},
+    {"command": "ggen sync run", "evidence": "observed manufacture", "id": "sync-1"},
+    {"command": "python3 scripts/verify_repo.py generated", "evidence": "independent consequence verification", "id": "generated"},
+    {"command": "ggen receipt verify --format json", "evidence": "GGen receipt verification", "id": "receipt-1"},
+    {"command": "python3 scripts/verify_repo.py snapshot", "evidence": "projection digest", "id": "snapshot-1"},
+    {"command": "ggen sync run", "evidence": "replay manufacture", "id": "sync-2"},
+    {"command": "ggen receipt verify --format json", "evidence": "replay receipt verification", "id": "receipt-2"},
+    {"command": "python3 scripts/verify_repo.py snapshot", "evidence": "replay projection digest", "id": "snapshot-2"},
+    {"command": "python3 scripts/verify_repo.py falsify", "evidence": "negative fixtures", "id": "falsify"},
+    {"command": "workflow evidence writer", "evidence": "exact subject + producer + consequence + replay receipt", "id": "receipt-bind"}
+  ],
+  "schema": "https://seanchatmangpt.github.io/ggen-skills/core-team-dod/v1",
+  "scope": {
+    "external_actuation": "not authorized by this repository",
+    "individual_skill_behavior": "remains PARTIAL_ALIVE until executed against an exact admitted task in its target runtime",
+    "manufacturing_rail": "may become ALIVE when every alive_requires predicate is observed"
+  },
+  "standing_vocabulary": ["UNKNOWN", "PARTIAL_ALIVE", "ALIVE", "BLOCKED", "BUILD_BROKEN", "UNSUPPORTED", "REFUSED:<type>"]
+}

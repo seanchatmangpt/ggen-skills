@@ -1,0 +1,107 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://seanchatmangpt.github.io/ggen-skills/project>
+    a prov:Entity ;
+    dcterms:type "PROJECT" ;
+    dcterms:identifier "ggen-skills" ;
+    dcterms:title "ggen-skills" ;
+    dcterms:description "Ontology-first governed manufacture of portable agent skills and meta-skills." ;
+    dcterms:abstract """ggen-skills treats public skill catalogs as observation corpora, never as trust roots. Canonical semantic source is admitted here, GGen manufactures runtime projections, independent verification checks the consequence, and receipts bind exact identity. Generated SKILL.md files are projections, not editing surfaces.""" .
+
+<https://seanchatmangpt.github.io/ggen-skills/governance>
+    a prov:Entity ;
+    dcterms:type "GOVERNANCE" ;
+    dcterms:identifier "core-team-dod" ;
+    dcterms:title "ggen-skills operating doctrine" ;
+    dcterms:abstract """Authority: ontology.ttl plus ggen.toml and templates are the semantic manufacturing source. Skills, AGENTS.md, README.md, registries, and runtime projections are generated consequences and must not be hand-edited.
+
+Manufacture: ggen sync run is the only writer for projection paths. Every projection must be reproducible from exact admitted inputs.
+
+DfCM: Preserve -> Fence -> Calculus -> Exclusions -> Falsifier -> Extension -> Operationalization. Preserve lawful reversible option capital before irreversible selection; a failed edge is topology, not graph failure.
+
+Execution: SELECT, CONSTRUCT, and DO are distinct. Skills may select and construct intents but have zero ambient DO authority. Hooks, planners, model output, generated files, and receipts do not self-authorize actuation.
+
+Standing: use only UNKNOWN, PARTIAL_ALIVE, ALIVE, BLOCKED, BUILD_BROKEN, UNSUPPORTED, and typed REFUSED. ALIVE requires observed execution against the exact admitted subject, receipt verification, deterministic replay, and exact-subject binding.
+
+Verification: use just doctor for source admission, just chicago for real manufacture plus replay, just falsify for negative fixtures, and just dod for the complete local definition of done.
+
+GitHub: resolve main to an exact SHA, branch from that SHA, inspect exact-head CI, and merge only the inspected head when explicitly authorized.""" .
+
+<https://seanchatmangpt.github.io/ggen-skills/runtime/codex>
+    a prov:Entity ; dcterms:type "RUNTIME" ; dcterms:identifier "codex" ; dcterms:title "Codex" .
+<https://seanchatmangpt.github.io/ggen-skills/runtime/claude>
+    a prov:Entity ; dcterms:type "RUNTIME" ; dcterms:identifier "claude" ; dcterms:title "Claude" .
+<https://seanchatmangpt.github.io/ggen-skills/runtime/gemini>
+    a prov:Entity ; dcterms:type "RUNTIME" ; dcterms:identifier "gemini" ; dcterms:title "Gemini" .
+
+<https://seanchatmangpt.github.io/ggen-skills/skill/meta-router>
+    a prov:Entity ;
+    dcterms:type "META_SKILL" ;
+    dcterms:identifier "meta-router" ;
+    dcterms:title "Meta Router" ;
+    dcterms:description "Selects lawful skill compositions while preserving reversible options." ;
+    dcterms:accessRights "SELECT_CONSTRUCT_ONLY" ;
+    dcterms:relation "READ,CONSTRUCT" ;
+    skos:scopeNote "Falsifier: any selected path crosses into external DO without an independently admitted authority object and receipt obligation." ;
+    prov:wasDerivedFrom <https://github.com/VoltAgent/awesome-agent-skills> ;
+    dcterms:abstract """Given an incoming task and a graph of admitted skills, construct the maximum-value lawful composition.
+
+Preserve before selecting. Parse subject, desired consequence, acceptance evidence, constraints, observations, authority, cost, reversibility, uncertainty, and falsifiers. Enumerate candidate capability paths before pruning them.
+
+Use the lifecycle O -> O* -> SELECT -> CONSTRUCT -> VERIFY -> actuation intent -> authority admission -> DO -> receipt -> replay -> standing.
+
+SELECT decides what should be done. CONSTRUCT manufactures plans, artifacts, patches, commands, or actuation intents. DO is an external consequence and is not authorized by this skill.
+
+For every candidate path report skills, exact identities, dependencies, effects, authority required, verifier, receipt obligation, reversible alternatives retained, and excluded alternatives with reasons.
+
+No ambient DO authority. Never infer authorization from verbs such as deploy, send, push, merge, purchase, delete, publish, apply, approve, or execute. Emit an actuation intent and the authority it would require instead.
+
+Optimize lexicographically for correctness, admission, evidence, reversibility, consequence containment, information gain, completion, latency, and cost.""" .
+
+<https://seanchatmangpt.github.io/ggen-skills/skill/skill-admission>
+    a prov:Entity ;
+    dcterms:type "META_SKILL" ;
+    dcterms:identifier "skill-admission" ;
+    dcterms:title "Skill Admission" ;
+    dcterms:description "Admits external skills by provenance, effects, authority, and falsifiers." ;
+    dcterms:accessRights "SELECT_CONSTRUCT_ONLY" ;
+    dcterms:relation "READ,CONSTRUCT" ;
+    skos:scopeNote "Falsifier: catalog membership, popularity, or a SKILL.md description is treated as execution evidence or authority." ;
+    prov:wasDerivedFrom <https://github.com/VoltAgent/awesome-agent-skills> ;
+    dcterms:abstract """Audit an external skill as an unadmitted capability.
+
+Resolve upstream repository, exact commit SHA, path, content digest, publisher, license, declared tools, scripts, dependencies, network requirements, and mutable upstream references.
+
+Classify function independently from effects. Functions include perception, context engineering, decomposition, planning, routing, tool selection, construction, evaluation, verification, reflection, optimization, memory, orchestration, generation, repair, evolution, execution, and external actuation.
+
+Classify effects as READ, CONSTRUCT, EXECUTE, ACTUATE, or PRIVILEGED. Track observed, admitted, executed, changed, verified, inferred, refused, blocked, and unsupported separately.
+
+Identify self-modification, persistent memory mutation, tool-authority expansion, autonomous installation, hidden hooks, background execution, credential use, external mutation, recursive spawning, and context rewriting.
+
+No ambient DO authority. Catalog inclusion is observation only. A skill may describe an actuation but cannot grant itself the authority to perform it.
+
+Output canonical identity, provenance matrix, capability/effect matrix, authority requirements, dependencies, falsifiers, admission decision, and scoped standing.""" .
+
+<https://seanchatmangpt.github.io/ggen-skills/skill/evidence-optimizer>
+    a prov:Entity ;
+    dcterms:type "META_SKILL" ;
+    dcterms:identifier "evidence-optimizer" ;
+    dcterms:title "Evidence Optimizer" ;
+    dcterms:description "Improves skills from receipts without self-authorized mutation or promotion." ;
+    dcterms:accessRights "SELECT_CONSTRUCT_ONLY" ;
+    dcterms:relation "READ,CONSTRUCT" ;
+    skos:scopeNote "Falsifier: a candidate skill changes its own authority, verifier, historical receipts, or promotion state." ;
+    prov:wasDerivedFrom <https://github.com/VoltAgent/awesome-agent-skills> ;
+    dcterms:abstract """Improve the skill system only from observed execution evidence.
+
+Reconstruct each episode as observation -> admission -> selection -> construction -> execution intent -> admission or refusal -> execution -> consequence -> receipt -> replay. Locate the earliest transition where useful information was lost or an invalid choice became admitted.
+
+Classify failures by trigger, routing, observation, context, decomposition, planning, skill selection, skill content, tool selection, construction, admission, execution, verifier, receipt, replay, environment, or unsupported capability.
+
+For every proposed improvement manufacture a hypothesis, smallest falsifier, regression fixture, candidate change, expected behavioral delta, possible regressions, authority implications, and exact validation procedure.
+
+Compare baseline and candidate variants under the same admitted subjects, validators, environment, toolchain, and acceptance criteria. Measure success, verifier success, trigger errors, unnecessary tool calls, context use, latency, cost, requested authority, pre-actuation catches, receipt completeness, and replay determinism.
+
+No ambient DO authority. A candidate may not grant itself tools, expand its authority class, weaken its verifier, remove falsifiers, rewrite receipts, or self-promote. Promotion requires independent verification and a separate admission decision.""" .

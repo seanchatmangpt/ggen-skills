@@ -1,0 +1,203 @@
+[project]
+name = "ggen-skills"
+version = "0.1.0"
+description = "Ontology-first governed manufacture of portable agent skills and meta-skills"
+
+[ontology]
+source = "ontology.ttl"
+
+[generation]
+output_dir = "."
+
+[inference]
+rules = [
+  { name = "normalize", construct = "CONSTRUCT { ?s ?p ?o } WHERE { ?s ?p ?o }" }
+]
+
+[[generation.rules]]
+name = "meta-router-codex"
+query = { inline = """
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?name ?title ?description ?body ?effect ?authority ?falsifier ?runtime WHERE {
+  ?skill a prov:Entity ; dcterms:type "META_SKILL" ; dcterms:identifier ?name ; dcterms:title ?title ; dcterms:description ?description ; dcterms:abstract ?body ; dcterms:relation ?effect ; dcterms:accessRights ?authority ; skos:scopeNote ?falsifier .
+  ?runtimeEntity a prov:Entity ; dcterms:type "RUNTIME" ; dcterms:identifier ?runtime .
+  FILTER(?name = "meta-router" && ?runtime = "codex")
+}
+""" }
+template = { file = "templates/skill.md.tera" }
+output_file = "projections/codex/meta-router/SKILL.md"
+mode = "Overwrite"
+
+[[generation.rules]]
+name = "meta-router-claude"
+query = { inline = """
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?name ?title ?description ?body ?effect ?authority ?falsifier ?runtime WHERE {
+  ?skill a prov:Entity ; dcterms:type "META_SKILL" ; dcterms:identifier ?name ; dcterms:title ?title ; dcterms:description ?description ; dcterms:abstract ?body ; dcterms:relation ?effect ; dcterms:accessRights ?authority ; skos:scopeNote ?falsifier .
+  ?runtimeEntity a prov:Entity ; dcterms:type "RUNTIME" ; dcterms:identifier ?runtime .
+  FILTER(?name = "meta-router" && ?runtime = "claude")
+}
+""" }
+template = { file = "templates/skill.md.tera" }
+output_file = "projections/claude/meta-router/SKILL.md"
+mode = "Overwrite"
+
+[[generation.rules]]
+name = "meta-router-gemini"
+query = { inline = """
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?name ?title ?description ?body ?effect ?authority ?falsifier ?runtime WHERE {
+  ?skill a prov:Entity ; dcterms:type "META_SKILL" ; dcterms:identifier ?name ; dcterms:title ?title ; dcterms:description ?description ; dcterms:abstract ?body ; dcterms:relation ?effect ; dcterms:accessRights ?authority ; skos:scopeNote ?falsifier .
+  ?runtimeEntity a prov:Entity ; dcterms:type "RUNTIME" ; dcterms:identifier ?runtime .
+  FILTER(?name = "meta-router" && ?runtime = "gemini")
+}
+""" }
+template = { file = "templates/skill.md.tera" }
+output_file = "projections/gemini/meta-router/SKILL.md"
+mode = "Overwrite"
+
+[[generation.rules]]
+name = "skill-admission-codex"
+query = { inline = """
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?name ?title ?description ?body ?effect ?authority ?falsifier ?runtime WHERE {
+  ?skill a prov:Entity ; dcterms:type "META_SKILL" ; dcterms:identifier ?name ; dcterms:title ?title ; dcterms:description ?description ; dcterms:abstract ?body ; dcterms:relation ?effect ; dcterms:accessRights ?authority ; skos:scopeNote ?falsifier .
+  ?runtimeEntity a prov:Entity ; dcterms:type "RUNTIME" ; dcterms:identifier ?runtime .
+  FILTER(?name = "skill-admission" && ?runtime = "codex")
+}
+""" }
+template = { file = "templates/skill.md.tera" }
+output_file = "projections/codex/skill-admission/SKILL.md"
+mode = "Overwrite"
+
+[[generation.rules]]
+name = "skill-admission-claude"
+query = { inline = """
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?name ?title ?description ?body ?effect ?authority ?falsifier ?runtime WHERE {
+  ?skill a prov:Entity ; dcterms:type "META_SKILL" ; dcterms:identifier ?name ; dcterms:title ?title ; dcterms:description ?description ; dcterms:abstract ?body ; dcterms:relation ?effect ; dcterms:accessRights ?authority ; skos:scopeNote ?falsifier .
+  ?runtimeEntity a prov:Entity ; dcterms:type "RUNTIME" ; dcterms:identifier ?runtime .
+  FILTER(?name = "skill-admission" && ?runtime = "claude")
+}
+""" }
+template = { file = "templates/skill.md.tera" }
+output_file = "projections/claude/skill-admission/SKILL.md"
+mode = "Overwrite"
+
+[[generation.rules]]
+name = "skill-admission-gemini"
+query = { inline = """
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?name ?title ?description ?body ?effect ?authority ?falsifier ?runtime WHERE {
+  ?skill a prov:Entity ; dcterms:type "META_SKILL" ; dcterms:identifier ?name ; dcterms:title ?title ; dcterms:description ?description ; dcterms:abstract ?body ; dcterms:relation ?effect ; dcterms:accessRights ?authority ; skos:scopeNote ?falsifier .
+  ?runtimeEntity a prov:Entity ; dcterms:type "RUNTIME" ; dcterms:identifier ?runtime .
+  FILTER(?name = "skill-admission" && ?runtime = "gemini")
+}
+""" }
+template = { file = "templates/skill.md.tera" }
+output_file = "projections/gemini/skill-admission/SKILL.md"
+mode = "Overwrite"
+
+[[generation.rules]]
+name = "evidence-optimizer-codex"
+query = { inline = """
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?name ?title ?description ?body ?effect ?authority ?falsifier ?runtime WHERE {
+  ?skill a prov:Entity ; dcterms:type "META_SKILL" ; dcterms:identifier ?name ; dcterms:title ?title ; dcterms:description ?description ; dcterms:abstract ?body ; dcterms:relation ?effect ; dcterms:accessRights ?authority ; skos:scopeNote ?falsifier .
+  ?runtimeEntity a prov:Entity ; dcterms:type "RUNTIME" ; dcterms:identifier ?runtime .
+  FILTER(?name = "evidence-optimizer" && ?runtime = "codex")
+}
+""" }
+template = { file = "templates/skill.md.tera" }
+output_file = "projections/codex/evidence-optimizer/SKILL.md"
+mode = "Overwrite"
+
+[[generation.rules]]
+name = "evidence-optimizer-claude"
+query = { inline = """
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?name ?title ?description ?body ?effect ?authority ?falsifier ?runtime WHERE {
+  ?skill a prov:Entity ; dcterms:type "META_SKILL" ; dcterms:identifier ?name ; dcterms:title ?title ; dcterms:description ?description ; dcterms:abstract ?body ; dcterms:relation ?effect ; dcterms:accessRights ?authority ; skos:scopeNote ?falsifier .
+  ?runtimeEntity a prov:Entity ; dcterms:type "RUNTIME" ; dcterms:identifier ?runtime .
+  FILTER(?name = "evidence-optimizer" && ?runtime = "claude")
+}
+""" }
+template = { file = "templates/skill.md.tera" }
+output_file = "projections/claude/evidence-optimizer/SKILL.md"
+mode = "Overwrite"
+
+[[generation.rules]]
+name = "evidence-optimizer-gemini"
+query = { inline = """
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?name ?title ?description ?body ?effect ?authority ?falsifier ?runtime WHERE {
+  ?skill a prov:Entity ; dcterms:type "META_SKILL" ; dcterms:identifier ?name ; dcterms:title ?title ; dcterms:description ?description ; dcterms:abstract ?body ; dcterms:relation ?effect ; dcterms:accessRights ?authority ; skos:scopeNote ?falsifier .
+  ?runtimeEntity a prov:Entity ; dcterms:type "RUNTIME" ; dcterms:identifier ?runtime .
+  FILTER(?name = "evidence-optimizer" && ?runtime = "gemini")
+}
+""" }
+template = { file = "templates/skill.md.tera" }
+output_file = "projections/gemini/evidence-optimizer/SKILL.md"
+mode = "Overwrite"
+
+[[generation.rules]]
+name = "agents-doctrine"
+query = { inline = """
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?title ?body WHERE {
+  ?g a prov:Entity ; dcterms:type "GOVERNANCE" ; dcterms:title ?title ; dcterms:abstract ?body .
+}
+""" }
+template = { file = "templates/agents.md.tera" }
+output_file = "AGENTS.md"
+mode = "Overwrite"
+
+[[generation.rules]]
+name = "readme"
+query = { inline = """
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?title ?body WHERE {
+  ?p a prov:Entity ; dcterms:type "PROJECT" ; dcterms:title ?title ; dcterms:abstract ?body .
+}
+""" }
+template = { file = "templates/readme.md.tera" }
+output_file = "README.md"
+mode = "Overwrite"
+
+[[generation.rules]]
+name = "registry"
+query = { inline = """
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?name ?runtime ?effect ?authority WHERE {
+  ?skill a prov:Entity ; dcterms:type "META_SKILL" ; dcterms:identifier ?name ; dcterms:relation ?effect ; dcterms:accessRights ?authority .
+  ?runtimeEntity a prov:Entity ; dcterms:type "RUNTIME" ; dcterms:identifier ?runtime .
+}
+ORDER BY ?name ?runtime
+""" }
+template = { file = "templates/registry.json.tera" }
+output_file = "generated/registry.json"
+mode = "Overwrite"
