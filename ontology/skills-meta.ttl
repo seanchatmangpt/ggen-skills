@@ -1,0 +1,130 @@
+@prefix gsk: <https://w3id.org/chatman/ggen-skills#> .
+
+gsk:skill_creator_dfcm a gsk:Skill ;
+  gsk:skillName """skill-creator-dfcm""" ;
+  gsk:title """DfCM Skill Creator""" ;
+  gsk:description """Create new portable skills by deriving a maximal lawful design frontier from admitted source and contract law.""" ;
+  gsk:whenToUse """Use when a reusable capability should become a new Agent Skill rather than a one-off prompt or hidden workflow.""" ;
+  gsk:law """A skill is reusable manufacturing knowledge. Its trigger, law, authority boundary, evidence, falsifiers, composition, and standing must be explicit before its projection is promoted.""" ;
+  gsk:procedure """1. Admit source and define the skill contract.
+2. Enumerate alternative boundaries, triggers, decompositions, and compositions.
+3. Keep atomic skills separate where authority or evidence differs.
+4. Define adversarial falsifiers and portability constraints.
+5. Manufacture the skill projection from semantic source.
+6. Qualify exact-head structure and behavior.
+7. Promote only qualified novelty into the skill graph.""" ;
+  gsk:authorityClass """CONSTRUCT""" ;
+  gsk:authorityBoundary """Creating a skill does not grant the skill ambient DO authority or make its prose a correctness oracle.""" ;
+  gsk:evidence """Source coordinate, semantic skill entity, generated projection, verifier evidence, replay result, and promotion decision.""" ;
+  gsk:falsifiers """Creation fails if the skill is hand-authored outside the factory, conflates unrelated authority classes, lacks a falsifier, or cannot be regenerated deterministically.""" ;
+  gsk:composition """Compose `source-admission`, `contract-first`, `dfcm`, `skill-falsifier`, `skill-qualifier`, and `skill-promoter`.""" ;
+  gsk:standingRule """A new skill remains PARTIAL_ALIVE until manufactured and replay-qualified at its exact coordinate.""" ;
+  gsk:sourceCoordinate """seanchatmangpt/agile-protocol-specification@b5916330905195b124409ca0e857f43b897ffc80""" ;
+  gsk:sourcePath """specification-guide/src/v26_8_24/04_dfcm_and_adversarial_manufacturing_search.md""" .
+
+gsk:skill_composer a gsk:Skill ;
+  gsk:skillName """skill-composer""" ;
+  gsk:title """Skill Composer""" ;
+  gsk:description """Compose atomic skills into lawful workflows while preserving each skill contract and authority boundary.""" ;
+  gsk:whenToUse """Use when a task requires several skills in sequence or parallel and composition must not create hidden authority.""" ;
+  gsk:law """Composition may connect contracts but must not collapse SELECT, CONSTRUCT, VERIFY, GOVERN, or external DO boundaries.""" ;
+  gsk:procedure """1. Select skills whose triggers match the admitted task.
+2. Map inputs, outputs, authority, evidence, and standing between them.
+3. Preserve explicit handoff boundaries.
+4. Reject cycles or shortcuts that bypass admission, verification, or receipts.
+5. Maximize reversible compositions before selecting a workflow.
+6. Qualify the composed behavior and its failure paths.""" ;
+  gsk:authorityClass """SELECT""" ;
+  gsk:authorityBoundary """Composition cannot grant any component more authority than it independently possesses.""" ;
+  gsk:evidence """Selected skill identities, composition graph, handoff contracts, authority map, qualification evidence, and residual gaps.""" ;
+  gsk:falsifiers """A composition fails if authority emerges from combination, evidence becomes unattributable, a required skill is bypassed, or component standing is overstated.""" ;
+  gsk:composition """Typically pairs with `aps-protocol`, `dfcm`, `skill-auditor`, and `skill-qualifier`.""" ;
+  gsk:standingRule """Composite standing is bounded by the weakest required unqualified boundary, not the strongest component claim.""" ;
+  gsk:sourceCoordinate """seanchatmangpt/agile-protocol-specification@b5916330905195b124409ca0e857f43b897ffc80""" ;
+  gsk:sourcePath """specification-guide/src/v26_8_24/13_aps_constitution.md""" .
+
+gsk:skill_auditor a gsk:Skill ;
+  gsk:skillName """skill-auditor""" ;
+  gsk:title """Skill Auditor""" ;
+  gsk:description """Audit a skill for trigger precision, constitutional law, authority, evidence, replay, falsifiability, and portability.""" ;
+  gsk:whenToUse """Use before promoting or reusing a skill, or when imported skills may contain hidden assumptions or authority escalation.""" ;
+  gsk:law """No prose outranks evidence. Skill governance must qualify reusable law rather than trusting persuasive instructions.""" ;
+  gsk:procedure """1. Inspect source coordinate and generated identity.
+2. Verify trigger and scope are bounded.
+3. Check required constitutional sections.
+4. Detect ambient DO or authority collapse.
+5. Check evidence and replay obligations.
+6. Execute adversarial falsifiers and portability checks.
+7. Assign bounded standing and remediation.""" ;
+  gsk:authorityClass """VERIFY""" ;
+  gsk:authorityBoundary """Audit can refuse promotion but cannot grant external execution authority.""" ;
+  gsk:evidence """Audit subject digest, rule results, negative fixtures, exact-head run, replay result, and standing.""" ;
+  gsk:falsifiers """The auditor itself fails if sabotage cases do not change its verdict, if it trusts the skill's self-description, or if it ignores source/projection drift.""" ;
+  gsk:composition """Compose with `rice-boundary`, `skill-falsifier`, `skill-qualifier`, `exact-head-verification`, and `jig-maturity`.""" ;
+  gsk:standingRule """Audit conclusions apply only to the exact skill coordinate and tested portability boundary.""" ;
+  gsk:sourceCoordinate """seanchatmangpt/agile-protocol-specification@b5916330905195b124409ca0e857f43b897ffc80""" ;
+  gsk:sourcePath """specification-guide/src/v26_8_24/14_conformance_metrology_and_replay.md""" .
+
+gsk:skill_falsifier a gsk:Skill ;
+  gsk:skillName """skill-falsifier""" ;
+  gsk:title """Skill Falsifier""" ;
+  gsk:description """Manufacture counterexamples and sabotage fixtures capable of refuting a bounded skill claim.""" ;
+  gsk:whenToUse """Use when a skill's trigger, authority, determinism, portability, or claimed outcome needs adversarial qualification.""" ;
+  gsk:law """A falsifier must be capable of changing standing when observed. Criticism without an executable or observable failure condition is not sufficient.""" ;
+  gsk:procedure """1. State the exact skill claim.
+2. Enumerate failure families and attacker objectives.
+3. Construct minimal and catastrophic counterexamples.
+4. Exercise them against real boundaries where the claim concerns real state.
+5. Record whether each falsifier was detected or survived.
+6. Feed surviving failures into contract repair and requalification.""" ;
+  gsk:authorityClass """VERIFY""" ;
+  gsk:authorityBoundary """Falsification may use bounded sabotage fixtures but may not create unauthorized real-world harm.""" ;
+  gsk:evidence """Claim coordinate, fixture identity, execution evidence, observed failure or survival, and resulting standing transition.""" ;
+  gsk:falsifiers """This skill fails when its fixtures cannot distinguish a broken implementation from a correct one or when dangerous tests escape their admitted sandbox.""" ;
+  gsk:composition """Feeds `adversarial-requirements`, `skill-auditor`, `skill-qualifier`, and `skill-creator-dfcm`.""" ;
+  gsk:standingRule """A demonstrated counterexample prevents ALIVE for the refuted claim until repair and exact-head requalification.""" ;
+  gsk:sourceCoordinate """seanchatmangpt/agile-protocol-specification@b5916330905195b124409ca0e857f43b897ffc80""" ;
+  gsk:sourcePath """specification-guide/src/v26_8_24/15_falsifiers_and_research_agenda.md""" .
+
+gsk:skill_qualifier a gsk:Skill ;
+  gsk:skillName """skill-qualifier""" ;
+  gsk:title """Skill Qualifier""" ;
+  gsk:description """Execute the narrowest real verifier that can establish or refute a skill claim and assign bounded standing.""" ;
+  gsk:whenToUse """Use after a skill or skill composition has a concrete candidate projection and a claim requiring evidence.""" ;
+  gsk:law """Inspection is not execution evidence. Use the evidence ladder appropriate to the claim and independently observe the claimed state.""" ;
+  gsk:procedure """1. Name the exact subject and claim.
+2. Select the narrowest real verifier that reaches the claimed boundary.
+3. Execute positive and negative cases.
+4. Prefer state-based Chicago evidence where state is claimed.
+5. Replay deterministic claims and bind exact-head identity.
+6. Record residual gaps and assign bounded standing.""" ;
+  gsk:authorityClass """VERIFY""" ;
+  gsk:authorityBoundary """Qualification may withhold standing but does not authorize production actuation.""" ;
+  gsk:evidence """Exact subject, verifier identity, command or observation, positive and negative results, replay evidence, and standing decision.""" ;
+  gsk:falsifiers """Qualification fails if mocks substitute for claimed real state, exact identity is absent, negative fixtures cannot fail, or the constructor alone judges success.""" ;
+  gsk:composition """Compose with `skill-falsifier`, `exact-head-verification`, `replay-standing`, and `evidence-receipts`.""" ;
+  gsk:standingRule """Use the explicit standing vocabulary and never upgrade gaps by narrative.""" ;
+  gsk:sourceCoordinate """seanchatmangpt/agile-protocol-specification@b5916330905195b124409ca0e857f43b897ffc80""" ;
+  gsk:sourcePath """specification-guide/src/v26_8_24/14_conformance_metrology_and_replay.md""" .
+
+gsk:skill_promoter a gsk:Skill ;
+  gsk:skillName """skill-promoter""" ;
+  gsk:title """Skill Promoter""" ;
+  gsk:description """Turn independently qualified novelty into reusable manufacturing knowledge without preserving accidental implementation.""" ;
+  gsk:whenToUse """Use after a novel mechanism, composition, falsifier, or verifier has demonstrated reusable value and should become ecosystem capital.""" ;
+  gsk:law """`Novel_t -> observed success or failure -> extracted contract -> independent qualification -> reusable pattern admission -> KnownPattern_(t+1)`.""" ;
+  gsk:procedure """1. Extract the reusable contract from the qualified novelty.
+2. Separate general law from repository-specific parameters.
+3. Define trigger, authority, evidence, falsifiers, and composition edges.
+4. Manufacture the reusable projection.
+5. Independently qualify deterministic replay and portability.
+6. Admit the new pattern at an exact coordinate.
+7. Sunset exceptional one-off privilege where appropriate.""" ;
+  gsk:authorityClass """GOVERN""" ;
+  gsk:authorityBoundary """Promotion admits reusable knowledge; it does not grant production DO authority to future consumers.""" ;
+  gsk:evidence """Original qualification, extracted contract, manufactured reusable artifact, portability evidence, replay evidence, and admission coordinate.""" ;
+  gsk:falsifiers """Promotion fails if novelty is generalized without evidence, hidden local assumptions remain, or a reusable pattern cannot detect incompatible consumers.""" ;
+  gsk:composition """Consumes `skill-qualifier`; feeds `ggen-first`, `skill-creator-dfcm`, and future DfCM searches.""" ;
+  gsk:standingRule """Promoted knowledge inherits only the bounded standing demonstrated across its admitted portability profile.""" ;
+  gsk:sourceCoordinate """seanchatmangpt/agile-protocol-specification@b5916330905195b124409ca0e857f43b897ffc80""" ;
+  gsk:sourcePath """specification-guide/src/v26_8_24/04_dfcm_and_adversarial_manufacturing_search.md""" .

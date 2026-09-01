@@ -1,0 +1,152 @@
+@prefix gsk: <https://w3id.org/chatman/ggen-skills#> .
+
+gsk:ggen_first a gsk:Skill ;
+  gsk:skillName """ggen-first""" ;
+  gsk:title """GGen First""" ;
+  gsk:description """Prefer reusable manufacturing knowledge and generated tool invocation over bespoke artifact authorship.""" ;
+  gsk:whenToUse """Use whenever implementation, configuration, documentation, workflow, CLI invocation, or integration could be manufactured from admitted knowledge.""" ;
+  gsk:law """Known pattern? Compose it. Known tool? Generate its invocation. Novel mechanism? Discover it once, then teach the factory.""" ;
+  gsk:procedure """1. Search for admitted reusable manufacturing patterns.
+2. Compose known patterns before inventing mechanisms.
+3. Prefer specialized tools when superior and manufacture their declarations, inputs, configuration, and invocation.
+4. Express repository differences as facts and parameters.
+5. Isolate genuinely irreducible novelty only after known paths fail.
+6. Qualify successful novelty and promote it as reusable capital.""" ;
+  gsk:authorityClass """CONSTRUCT""" ;
+  gsk:authorityBoundary """Manufactured commands, scripts, manifests, and artifacts possess no ambient DO authority.""" ;
+  gsk:evidence """Admitted pattern/tool coordinate, generated inputs, manufacturing receipt, output identity, verifier evidence, and promotion decision.""" ;
+  gsk:falsifiers """The skill fails when a one-off is declared without decomposition, handwritten glue replaces manufacturable composition, or a downstream generator is treated as authority.""" ;
+  gsk:composition """Consumes `contract-first` and `dfcm`; composes with `select-construct-do`, `evidence-receipts`, and `skill-promoter`.""" ;
+  gsk:standingRule """Generation success alone is never sufficient for ALIVE.""" ;
+  gsk:sourceCoordinate """seanchatmangpt/agile-protocol-specification@b5916330905195b124409ca0e857f43b897ffc80""" ;
+  gsk:sourcePath """specification-guide/src/v26_8_24/05_contract_first_ggen_first.md""" .
+
+gsk:select_construct_do a gsk:Skill ;
+  gsk:skillName """select-construct-do""" ;
+  gsk:title """SELECT CONSTRUCT DO Separation""" ;
+  gsk:description """Keep planning, artifact manufacture, and consequential execution as distinct authority classes.""" ;
+  gsk:whenToUse """Use whenever a model, planner, generator, workflow, tool, or artifact could otherwise blur recommendation into execution.""" ;
+  gsk:law """SELECT chooses. CONSTRUCT manufactures. DO changes an external or operational world. Existence of a plan or artifact does not confer DO authority.""" ;
+  gsk:procedure """1. Classify each requested operation as SELECT, CONSTRUCT, or DO.
+2. Bind the actor and authority needed for each class.
+3. Prevent authority inheritance from SELECT to CONSTRUCT or CONSTRUCT to DO.
+4. Route proposed DO through an explicit admission/refusal boundary.
+5. Require observed consequence and receipt after authorized DO.
+6. Verify that denied DO leaves no consequential side effect.""" ;
+  gsk:authorityClass """GOVERN""" ;
+  gsk:authorityBoundary """This skill enforces authority separation; it does not itself grant DO authority.""" ;
+  gsk:evidence """Operation classification, actor identity, authority decision, requested action, observed consequence, and refusal evidence.""" ;
+  gsk:falsifiers """Authority collapse is proven if a proposal, generated artifact, network request, workflow definition, MCP call, or CLI manifest can cause DO merely by existing.""" ;
+  gsk:composition """Compose with `brce-boundary`, `evidence-receipts`, and `aps-protocol`.""" ;
+  gsk:standingRule """Any unclassified consequential path is BLOCKED or REFUSED until authority is explicit.""" ;
+  gsk:sourceCoordinate """seanchatmangpt/agile-protocol-specification@b5916330905195b124409ca0e857f43b897ffc80""" ;
+  gsk:sourcePath """specification-guide/src/v26_8_24/13_aps_constitution.md""" .
+
+gsk:brce_boundary a gsk:Skill ;
+  gsk:skillName """brce-boundary""" ;
+  gsk:title """BRCE Actuation Boundary""" ;
+  gsk:description """Admit or refuse consequential DO through an explicit authority boundary and require receipted consequence.""" ;
+  gsk:whenToUse """Use immediately before any operation that can change an external, persistent, production, financial, security, deployment, or governance state.""" ;
+  gsk:law """Zero unreceipted actuation. The minimum DO path is proposal -> admission or refusal -> authorized executor -> observed consequence -> evidence.""" ;
+  gsk:procedure """1. Receive a bounded actuation intent.
+2. Verify exact subject, policy, executor, scope, and preconditions.
+3. Admit or issue a typed refusal before side effect.
+4. If admitted, invoke only the authorized executor within scope.
+5. Observe the resulting external state.
+6. Emit and bind a receipt.
+7. Route evidence to independent verification and standing.""" ;
+  gsk:authorityClass """GOVERN""" ;
+  gsk:authorityBoundary """The boundary may admit/refuse a DO request only when explicit external authority is present. The skill itself carries no production credentials or ambient authority.""" ;
+  gsk:evidence """Actuation intent, policy coordinate, authority decision, executor identity, before/after state, receipt, and verifier coordinate.""" ;
+  gsk:falsifiers """Any side effect before admission, execution outside scope, missing receipt, or denial with side effect is a boundary failure.""" ;
+  gsk:composition """Requires `select-construct-do`; emits to `evidence-receipts` and `replay-standing`.""" ;
+  gsk:standingRule """A typed REFUSED with no side effect is a successful safety outcome, not a failed execution.""" ;
+  gsk:sourceCoordinate """seanchatmangpt/agile-protocol-specification@b5916330905195b124409ca0e857f43b897ffc80""" ;
+  gsk:sourcePath """specification-guide/src/v26_8_24/13_aps_constitution.md""" .
+
+gsk:evidence_receipts a gsk:Skill ;
+  gsk:skillName """evidence-receipts""" ;
+  gsk:title """Evidence Receipts""" ;
+  gsk:description """Bind requested action, authority, execution, consequence, and verifier observations to exact coordinates.""" ;
+  gsk:whenToUse """Use for manufacture, qualification, or consequential execution where claims must survive session, implementation, or organizational turnover.""" ;
+  gsk:law """A receipt is evidence, not automatic proof of correctness. Integrity and semantic fitness are separate claims.""" ;
+  gsk:procedure """1. Bind admitted input identity and contract coordinate.
+2. Bind manufacturing or executor identity.
+3. Record requested operation and observed result.
+4. Record time or order information and integrity data.
+5. Bind output or external-state identity.
+6. Bind verifier coordinate and standing claim separately.
+7. Preserve receipts for replay and later audit.""" ;
+  gsk:authorityClass """CONSTRUCT""" ;
+  gsk:authorityBoundary """Receipt construction records consequence; it cannot retroactively authorize an unapproved action or self-certify semantic correctness.""" ;
+  gsk:evidence """The receipt itself plus independently observable state sufficient to validate its claims.""" ;
+  gsk:falsifiers """A receipt fails if it cannot bind the exact subject, can be replayed against a different candidate, omits authority, or reports success contradicted by external state.""" ;
+  gsk:composition """Receives from `ggen-first` or `brce-boundary`; feeds `exact-head-verification`, `replay-standing`, and `process-intelligence`.""" ;
+  gsk:standingRule """Valid receipt integrity may support evidence standing while semantic or process fitness remains PARTIAL_ALIVE or UNKNOWN.""" ;
+  gsk:sourceCoordinate """seanchatmangpt/agile-protocol-specification@b5916330905195b124409ca0e857f43b897ffc80""" ;
+  gsk:sourcePath """specification-guide/src/v26_8_24/14_conformance_metrology_and_replay.md""" .
+
+gsk:exact_head_verification a gsk:Skill ;
+  gsk:skillName """exact-head-verification""" ;
+  gsk:title """Exact Head Verification""" ;
+  gsk:description """Qualify the exact candidate identity being promoted rather than a nearby ancestor or regenerated local state.""" ;
+  gsk:whenToUse """Use before merging, releasing, publishing, promoting, or assigning ALIVE to a repository or artifact coordinate.""" ;
+  gsk:law """Evidence for promotion must bind to the exact candidate being promoted. Green evidence on a neighboring coordinate is not evidence for the current head.""" ;
+  gsk:procedure """1. Resolve the immutable candidate identity.
+2. Execute the declared verifier against that exact identity.
+3. Reject stale, ancestor, branch-ambiguous, or local-only evidence.
+4. Bind receipts and artifacts to the exact candidate.
+5. Repair failures and rerun on the new head.
+6. Promote only when all required courts are terminal at that head.""" ;
+  gsk:authorityClass """VERIFY""" ;
+  gsk:authorityBoundary """Verification may block promotion but does not grant deployment or production DO authority.""" ;
+  gsk:evidence """Exact commit or artifact digest, verifier run identity, logs, receipts, generated artifacts, and terminal conclusions.""" ;
+  gsk:falsifiers """Any required check whose subject differs from the promotion candidate invalidates the crown claim.""" ;
+  gsk:composition """Compose with `evidence-receipts`, `replay-standing`, and `skill-qualifier`.""" ;
+  gsk:standingRule """Changed head invalidates prior exact-head standing until requalified.""" ;
+  gsk:sourceCoordinate """seanchatmangpt/agile-protocol-specification@b5916330905195b124409ca0e857f43b897ffc80""" ;
+  gsk:sourcePath """specification-guide/src/v26_8_24/14_conformance_metrology_and_replay.md""" .
+
+gsk:replay_standing a gsk:Skill ;
+  gsk:skillName """replay-standing""" ;
+  gsk:title """Replay and Standing""" ;
+  gsk:description """Distinguish replay contracts and assign only the standing justified by observed evidence.""" ;
+  gsk:whenToUse """Use after manufacture or execution to test reproducibility and convert evidence into bounded standing.""" ;
+  gsk:law """Same operation, byte identity, behavioral equivalence, and equivalent external consequence are four different replay claims.""" ;
+  gsk:procedure """1. Name the replay claim being tested.
+2. Re-run against the exact admitted inputs and toolchain coordinate.
+3. Compare the observation required by that replay contract.
+4. Independently verify discrepancies and residual unknowns.
+5. Assign standing only for the boundary actually exercised.
+6. Preserve the replay evidence and refusal reasons.""" ;
+  gsk:authorityClass """VERIFY""" ;
+  gsk:authorityBoundary """Replay cannot strengthen a claim beyond the observable contract and does not authorize repeating consequential DO without fresh authority.""" ;
+  gsk:evidence """Pass-one and replay coordinates, byte or behavior comparisons, external observations where applicable, verifier identity, and standing decision.""" ;
+  gsk:falsifiers """Conflating different replay meanings, changing inputs silently, or promoting deterministic claims without fixed-point evidence invalidates standing.""" ;
+  gsk:composition """Consumes `evidence-receipts`; pairs with `exact-head-verification` and `skill-qualifier`.""" ;
+  gsk:standingRule """Use explicit bounded standing; do not convert absent or contradictory evidence into success.""" ;
+  gsk:sourceCoordinate """seanchatmangpt/agile-protocol-specification@b5916330905195b124409ca0e857f43b897ffc80""" ;
+  gsk:sourcePath """specification-guide/src/v26_8_24/14_conformance_metrology_and_replay.md""" .
+
+gsk:reconstitution a gsk:Skill ;
+  gsk:skillName """reconstitution""" ;
+  gsk:title """Reconstitution""" ;
+  gsk:description """Manufacture a lawful successor from recovered truth without attachment to predecessor implementation.""" ;
+  gsk:whenToUse """Use for legacy migration, architecture replacement, repository reset, process redesign, or any transition from state S_t to a candidate S_t+1.""" ;
+  gsk:law """Everything is sunk cost at the next decision boundary, but ignorance is not authority to delete. Manufacture without attachment; reconstitute without loss.""" ;
+  gsk:procedure """1. Observe predecessor `S_t` and recover relevant truth.
+2. Admit bounded `O*_t` with explicit unknowns.
+3. Define successor contracts and falsifiers.
+4. Construct a DfCM set of candidate manufacturing functions.
+5. Manufacture and independently qualify successor candidates.
+6. Select and admit `S_(t+1)` only on evidence.
+7. Verify coexistence or migration obligations.
+8. Assign explicit sunset standing to `S_t`.""" ;
+  gsk:authorityClass """GOVERN""" ;
+  gsk:authorityBoundary """Reconstitution may recommend or refuse sunset but cannot destroy or replace consequential systems without separate DO authority.""" ;
+  gsk:evidence """Predecessor observations, recovered contract, successor identities, qualification evidence, migration/coexistence evidence, and sunset decision.""" ;
+  gsk:falsifiers """The transition fails if required truth is lost, equivalence is assumed rather than bounded, sunset precedes evidence, or the new factory becomes non-reconstitutable.""" ;
+  gsk:composition """Compose with `preserve-fence`, `observe-admit`, `dfcm`, `exact-head-verification`, and `replay-standing`.""" ;
+  gsk:standingRule """Residual unrecovered requirements constrain successor or sunset standing to PARTIAL_ALIVE, UNKNOWN, BLOCKED, or REFUSED.""" ;
+  gsk:sourceCoordinate """seanchatmangpt/agile-protocol-specification@b5916330905195b124409ca0e857f43b897ffc80""" ;
+  gsk:sourcePath """specification-guide/src/v26_8_24/02_fuller_ephemeralization_and_reconstitution.md""" .

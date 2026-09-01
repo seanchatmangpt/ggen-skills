@@ -1,0 +1,29 @@
+{
+  "schema": "ggen-skills.source-lock.v1",
+  "source": {
+    "repository": "seanchatmangpt/agile-protocol-specification",
+    "commit": "b5916330905195b124409ca0e857f43b897ffc80",
+    "blobs": {
+      "ontology/aps-core.ttl": "a99d23f3fdeb4ecd83f205751ad1d64b6faf6f77",
+      "specification-guide/src/v26_8_24/00_source_admission_and_paradigm_reset.md": "4da07886e59dee83ac832ec6a62d1ef3fa4d8fd6",
+      "specification-guide/src/v26_8_24/02_fuller_ephemeralization_and_reconstitution.md": "ace94cb6e209f6ac96549789e2dc2bb3490eb705",
+      "specification-guide/src/v26_8_24/03_jig_maturity.md": "96be8d1e41d64ca6c55e296a233feb8e4b41b714",
+      "specification-guide/src/v26_8_24/04_dfcm_and_adversarial_manufacturing_search.md": "e40d80ffb9b0533f5d8dca434ab4b257138559b6",
+      "specification-guide/src/v26_8_24/05_contract_first_ggen_first.md": "3935e00e7bea03663e2a47c8ffd96b9144e090e6",
+      "specification-guide/src/v26_8_24/07_universal_execution_and_process_intelligence.md": "d883d650605732d33e81f3e251ad362513a6da0e",
+      "specification-guide/src/v26_8_24/09_governance_compression.md": "354e505d04c1f8d124cc4c654375f5ca6919f0b0",
+      "specification-guide/src/v26_8_24/13_aps_constitution.md": "ae2ebfb7e5e06ff1f3b1e672cfb41f70425d9a1f",
+      "specification-guide/src/v26_8_24/14_conformance_metrology_and_replay.md": "5b8ebb9c7fd5264a91c2d2cb4dbc34a41ffaae0d",
+      "specification-guide/src/v26_8_24/15_falsifiers_and_research_agenda.md": "9ae9bee90bff235d9fb04622d8393c3e4daac583",
+      "specification-guide/src/v26_8_24/17_rices_theorem_and_epistemic_boundaries.md": "412d68d19fb6aa6f3a246290be766d427364760e"
+    }
+  },
+  "manufacturer": {
+    "repository": "seanchatmangpt/ggen",
+    "version": "26.8.21",
+    "commit": "f4e1bce1efdcdc4f6c2531be9f66070950f7ec93",
+    "releaseTag": "v26.8.21",
+    "asset": "ggen-x86_64-unknown-linux-gnu.tar.gz",
+    "assetSha256": "17c1c36d8b021052e2a482f191a3e32fb24fa088c7a824a16a9c0ce8e10595a4"
+  }
+}

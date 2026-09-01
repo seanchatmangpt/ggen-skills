@@ -1,0 +1,31 @@
+@prefix gsk: <https://w3id.org/chatman/ggen-skills#> .
+@prefix aps: <https://w3id.org/chatman/aps#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://w3id.org/chatman/ggen-skills> a owl:Ontology ;
+  dcterms:title "ggen-skills APS adaptation" ;
+  dcterms:description "Canonical semantic source for portable Agent Skills manufactured from APS." ;
+  dcterms:source <https://github.com/seanchatmangpt/agile-protocol-specification> .
+
+gsk:Skill a owl:Class ;
+  rdfs:subClassOf prov:Plan ;
+  skos:definition "A portable, bounded, composable skill contract whose SKILL.md is a manufactured projection." .
+
+gsk:skillName a owl:DatatypeProperty .
+gsk:title a owl:DatatypeProperty .
+gsk:description a owl:DatatypeProperty .
+gsk:whenToUse a owl:DatatypeProperty .
+gsk:law a owl:DatatypeProperty .
+gsk:procedure a owl:DatatypeProperty .
+gsk:authorityClass a owl:DatatypeProperty .
+gsk:authorityBoundary a owl:DatatypeProperty .
+gsk:evidence a owl:DatatypeProperty .
+gsk:falsifiers a owl:DatatypeProperty .
+gsk:composition a owl:DatatypeProperty .
+gsk:standingRule a owl:DatatypeProperty .
+gsk:sourceCoordinate a owl:DatatypeProperty .
+gsk:sourcePath a owl:DatatypeProperty .

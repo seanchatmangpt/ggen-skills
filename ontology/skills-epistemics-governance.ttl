@@ -1,0 +1,85 @@
+@prefix gsk: <https://w3id.org/chatman/ggen-skills#> .
+
+gsk:rice_boundary a gsk:Skill ;
+  gsk:skillName """rice-boundary""" ;
+  gsk:title """Rice Boundary""" ;
+  gsk:description """Refuse universal semantic claims over arbitrary programs and move important meaning upstream into bounded contracts.""" ;
+  gsk:whenToUse """Use when a task asks a model, analyzer, or verifier to infer or decide arbitrary nontrivial program semantics universally.""" ;
+  gsk:law """Under standard computability assumptions, no general algorithm decides every nontrivial semantic property of arbitrary programs. Model confidence does not repeal undecidability.""" ;
+  gsk:procedure """1. Identify the semantic claim being requested.
+2. Determine whether it is universal over arbitrary implementation.
+3. Refuse the universal decision claim when it crosses the Rice boundary.
+4. Move relevant meaning into admitted semantics and executable contracts where possible.
+5. Constrain manufacture to a bounded behavior space.
+6. Establish bounded standing through independent observation and falsification.""" ;
+  gsk:authorityClass """VERIFY""" ;
+  gsk:authorityBoundary """This skill constrains epistemic claims; it neither proves arbitrary program meaning nor blocks useful bounded verification.""" ;
+  gsk:evidence """Declared semantic boundary, contract constraints, independent observations, falsifiers, and explicit residual unknowns.""" ;
+  gsk:falsifiers """A claim fails if model confidence, source inspection, tests, or generator self-description are presented as a universal semantic proof.""" ;
+  gsk:composition """Compose with `source-admission`, `contract-first`, `reconstitution`, and `skill-auditor`.""" ;
+  gsk:standingRule """Properties outside the bounded verifier contract remain UNKNOWN or UNSUPPORTED.""" ;
+  gsk:sourceCoordinate """seanchatmangpt/agile-protocol-specification@b5916330905195b124409ca0e857f43b897ffc80""" ;
+  gsk:sourcePath """specification-guide/src/v26_8_24/17_rices_theorem_and_epistemic_boundaries.md""" .
+
+gsk:jig_maturity a gsk:Skill ;
+  gsk:skillName """jig-maturity""" ;
+  gsk:title """Jig Maturity""" ;
+  gsk:description """Assess manufacturing maturity as a five-level profile across seven independent industrial dimensions.""" ;
+  gsk:whenToUse """Use to evaluate how much production knowledge has migrated from operator judgment into reusable qualified manufacturing capital.""" ;
+  gsk:law """Use exactly L1 through L5 across product knowledge, work positioning, operation guidance, process sequence, error prevention, measurement and qualification, and adaptation and learning. Do not average away bottlenecks.""" ;
+  gsk:procedure """1. Score each of the seven dimensions independently from L1 to L5.
+2. Demand observed evidence for each score.
+3. Record the maturity vector rather than only a scalar mean.
+4. Identify the lowest dimensions that preserve expert reconstruction.
+5. Define the next jig improvements that externalize missing knowledge.
+6. Reassess after observed manufacturing evidence.""" ;
+  gsk:authorityClass """VERIFY""" ;
+  gsk:authorityBoundary """Maturity assessment measures manufacturing capability and does not itself authorize process changes.""" ;
+  gsk:evidence """Seven-dimensional maturity vector, per-dimension evidence, bottlenecks, and exact assessed factory coordinate.""" ;
+  gsk:falsifiers """A maturity claim fails if sophistication is inferred from automation alone, dimensions are averaged to hide bottlenecks, or new operators still require private inventor knowledge.""" ;
+  gsk:composition """Compose with `skill-auditor`, `governance-compression`, and `skill-promoter`.""" ;
+  gsk:standingRule """Only dimensions observed at the exact coordinate earn the claimed level.""" ;
+  gsk:sourceCoordinate """seanchatmangpt/agile-protocol-specification@b5916330905195b124409ca0e857f43b897ffc80""" ;
+  gsk:sourcePath """specification-guide/src/v26_8_24/03_jig_maturity.md""" .
+
+gsk:process_intelligence a gsk:Skill ;
+  gsk:skillName """process-intelligence""" ;
+  gsk:title """Process Intelligence""" ;
+  gsk:description """Model consequential work as comparable semantic execution evidence for conformance, performance, risk, and fitness.""" ;
+  gsk:whenToUse """Use when heterogeneous workflows, software, SaaS, agents, or enterprise operations need one evidence model rather than bespoke observability stories.""" ;
+  gsk:law """Execution evidence should bind semantic subject, activity, authority, time, input and output identity, observed consequence, and evidence coordinate. Process conformance and process fitness are separate claims.""" ;
+  gsk:procedure """1. Identify semantic subjects and activities.
+2. Emit comparable provenance or OCEL-like events for consequential operations.
+3. Bind authority and evidence coordinates.
+4. Analyze variants, bottlenecks, conformance, performance, and risk.
+5. Test whether the admitted process itself is fit for objectives and constraints.
+6. Turn supported findings into candidate knowledge changes and remanufacture.""" ;
+  gsk:authorityClass """VERIFY""" ;
+  gsk:authorityBoundary """Process intelligence observes and recommends; analytics output does not receive ambient DO authority.""" ;
+  gsk:evidence """Comparable event corpus, semantic identities, authority records, conformance/fitness analyses, and candidate-change provenance.""" ;
+  gsk:falsifiers """The claim fails if evidence is reconstructed only after the fact, technologies emit incomparable identities, or perfect conformance to a harmful process is treated as fitness.""" ;
+  gsk:composition """Consumes `evidence-receipts`; feeds `dfcm`, `governance-compression`, and `skill-promoter`.""" ;
+  gsk:standingRule """Analytics earns standing only for the process boundary and evidence corpus actually observed.""" ;
+  gsk:sourceCoordinate """seanchatmangpt/agile-protocol-specification@b5916330905195b124409ca0e857f43b897ffc80""" ;
+  gsk:sourcePath """specification-guide/src/v26_8_24/07_universal_execution_and_process_intelligence.md""" .
+
+gsk:governance_compression a gsk:Skill ;
+  gsk:skillName """governance-compression""" ;
+  gsk:title """Governance Compression""" ;
+  gsk:description """Move governance upstream from artifact-by-artifact review to admitted semantic, manufacturing, authority, and verifier law.""" ;
+  gsk:whenToUse """Use when candidate or artifact volume exceeds feasible human review and governance must scale without weakening evidence.""" ;
+  gsk:law """Governance cost should scale with admitted law and exceptions rather than artifact count. Validate once means once per admitted version, not forever.""" ;
+  gsk:procedure """1. Identify the governing set of semantic authority, contracts, manufacturing law, policy, and verifier law.
+2. Version and qualify that set explicitly.
+3. Require downstream consequences to prove derivation from the admitted coordinate.
+4. Aggregate evidence and route exceptions back to governance.
+5. Requalify whenever governing inputs change.
+6. Measure governance reuse ratio without hiding risk.""" ;
+  gsk:authorityClass """GOVERN""" ;
+  gsk:authorityBoundary """Governance admission does not exempt downstream consequences from required independent qualification or grant ambient DO.""" ;
+  gsk:evidence """Admitted governing-set coordinate, derivation proofs, downstream qualification evidence, exceptions, and governance decisions.""" ;
+  gsk:falsifiers """Compression fails if review effort remains linear with artifacts, generator behavior hides unreviewed risk, or changed manufacturing law inherits stale approval.""" ;
+  gsk:composition """Compose with `jig-maturity`, `evidence-receipts`, `exact-head-verification`, and `skill-auditor`.""" ;
+  gsk:standingRule """A changed source, template, generator, policy, runtime boundary, or verifier creates a new candidate coordinate requiring qualification.""" ;
+  gsk:sourceCoordinate """seanchatmangpt/agile-protocol-specification@b5916330905195b124409ca0e857f43b897ffc80""" ;
+  gsk:sourcePath """specification-guide/src/v26_8_24/09_governance_compression.md""" .

@@ -1,0 +1,173 @@
+@prefix gsk: <https://w3id.org/chatman/ggen-skills#> .
+
+gsk:aps_protocol a gsk:Skill ;
+  gsk:skillName """aps-protocol""" ;
+  gsk:title """APS Protocol""" ;
+  gsk:description """Apply the full Agile Protocol Specification state machine to consequential knowledge work.""" ;
+  gsk:whenToUse """Use when a task spans observation, admission, contract, manufacture, authority, evidence, replay, standing, or sunset and needs one governing protocol.""" ;
+  gsk:law """`A = mu(O*)`. Preserve truth rather than incumbent implementation. Separate SELECT, CONSTRUCT, and DO. No prose outranks executable evidence.""" ;
+  gsk:procedure """1. Orient to capability and authority surfaces.
+2. Preserve and observe predecessor truth.
+3. Admit bounded `O*` and explicit unknowns.
+4. Define the contract and candidate falsifiers.
+5. Expand the lawful DfCM frontier.
+6. SELECT and CONSTRUCT without ambient DO.
+7. Route any DO through explicit authority and receipt law.
+8. Independently verify, replay, assign standing, and decide promotion or sunset.""" ;
+  gsk:authorityClass """GOVERN""" ;
+  gsk:authorityBoundary """This skill coordinates protocol decisions. It never grants production DO authority, and generated or proposed artifacts remain non-actuating until separately admitted.""" ;
+  gsk:evidence """Bind source, contract, manufacturing law, candidate identity, authority decision, observed consequence, verifier coordinate, replay result, and standing.""" ;
+  gsk:falsifiers """Protocol failure includes skipped admission, collapsed SELECT/CONSTRUCT/DO authority, unreceipted consequence, stale evidence, or standing stronger than observed evidence.""" ;
+  gsk:composition """Compose with `capability-orientation`, `preserve-fence`, `observe-admit`, `contract-first`, `dfcm`, `select-construct-do`, `brce-boundary`, `evidence-receipts`, `replay-standing`, and `reconstitution`.""" ;
+  gsk:standingRule """Return only UNKNOWN, PARTIAL_ALIVE, ALIVE, BLOCKED, BUILD_BROKEN, UNSUPPORTED, or typed REFUSED at the claimed boundary.""" ;
+  gsk:sourceCoordinate """seanchatmangpt/agile-protocol-specification@b5916330905195b124409ca0e857f43b897ffc80""" ;
+  gsk:sourcePath """specification-guide/src/v26_8_24/13_aps_constitution.md""" .
+
+gsk:capability_orientation a gsk:Skill ;
+  gsk:skillName """capability-orientation""" ;
+  gsk:title """Capability Orientation""" ;
+  gsk:description """Inventory the real work surface before selecting a mechanism or claiming capability.""" ;
+  gsk:whenToUse """Use at the beginning of work in an unfamiliar repository, runtime, connector, toolchain, or operational environment.""" ;
+  gsk:law """Observation rights precede design authority. Available tools, mounts, network paths, credentials, authority, runtime state, and evidence surfaces are part of the admitted workpiece.""" ;
+  gsk:procedure """1. Enumerate available tools and execution surfaces.
+2. Identify the exact subject and current coordinate.
+3. Inventory authority and credential boundaries without exposing secrets.
+4. Identify reachable verifiers and evidence stores.
+5. Record missing, stale, or contradictory observations as explicit unknowns.
+6. Hand the bounded observations to source admission.""" ;
+  gsk:authorityClass """SELECT""" ;
+  gsk:authorityBoundary """Orientation may discover capabilities but does not authorize their use for consequential DO.""" ;
+  gsk:evidence """Record exact subject identity, observable tool/runtime coordinates, authority scope, and unresolved capability gaps.""" ;
+  gsk:falsifiers """A capability claim fails if it depends on an unavailable tool, hidden credential, unobserved runtime, invented permission, or stale coordinate.""" ;
+  gsk:composition """Precedes `source-admission` and `observe-admit`; may invoke `rice-boundary` when arbitrary semantics cannot be inferred safely.""" ;
+  gsk:standingRule """Capability surfaces not directly observed remain UNKNOWN rather than assumed.""" ;
+  gsk:sourceCoordinate """seanchatmangpt/agile-protocol-specification@b5916330905195b124409ca0e857f43b897ffc80""" ;
+  gsk:sourcePath """specification-guide/src/v26_8_24/00_source_admission_and_paradigm_reset.md""" .
+
+gsk:preserve_fence a gsk:Skill ;
+  gsk:skillName """preserve-fence""" ;
+  gsk:title """Preserve Fence""" ;
+  gsk:description """Recover required truth from an incumbent without granting the incumbent continuation privilege.""" ;
+  gsk:whenToUse """Use before replacing, deleting, restructuring, migrating, or reconstituting an existing artifact, workflow, service, or repository.""" ;
+  gsk:law """Zero continuation privilege and zero uninformed elimination operate together. Preserve truth, not implementations.""" ;
+  gsk:procedure """1. Identify the predecessor coordinate.
+2. Recover observable contracts, invariants, semantics, evidence, failures, and obligations.
+3. Separate required truth from implementation accident.
+4. Mark unrecovered but relevant properties as explicit unknowns.
+5. Fence destructive or irreversible changes until admission is sufficient.
+6. Pass recovered knowledge to `source-admission` and candidate construction.""" ;
+  gsk:authorityClass """GOVERN""" ;
+  gsk:authorityBoundary """This skill may refuse premature elimination. It does not require preservation of the incumbent implementation.""" ;
+  gsk:evidence """Bind recovered facts to predecessor coordinates and record residual gaps that could affect successor fitness or sunset.""" ;
+  gsk:falsifiers """The fence fails if required behavior or obligation disappears because it was never observed, or if sunk cost is treated as a reason to continue.""" ;
+  gsk:composition """Compose with `source-admission`, `observe-admit`, `reconstitution`, and `rice-boundary`.""" ;
+  gsk:standingRule """Sunset remains BLOCKED or REFUSED while required truth is unrecovered beyond admitted tolerance.""" ;
+  gsk:sourceCoordinate """seanchatmangpt/agile-protocol-specification@b5916330905195b124409ca0e857f43b897ffc80""" ;
+  gsk:sourcePath """specification-guide/src/v26_8_24/02_fuller_ephemeralization_and_reconstitution.md""" .
+
+gsk:source_admission a gsk:Skill ;
+  gsk:skillName """source-admission""" ;
+  gsk:title """Source Admission""" ;
+  gsk:description """Convert raw sources into pinned evidence coordinates and distinguish authority from inference.""" ;
+  gsk:whenToUse """Use whenever files, repositories, standards, runtime observations, conversations, or external systems are inputs to manufacture.""" ;
+  gsk:law """Predecessor artifacts have observation rights rather than preservation rights. Only explicitly admitted, bounded knowledge becomes manufacturing authority.""" ;
+  gsk:procedure """1. Pin each source to an immutable or otherwise bounded coordinate.
+2. Classify source facts as observed, derived, inferred, unknown, or unsupported.
+3. Record provenance and integrity data where available.
+4. Admit only facts needed for the declared contract boundary.
+5. Refuse invented meaning and unbounded extrapolation.
+6. Produce the admitted `O*` set for downstream contract work.""" ;
+  gsk:authorityClass """GOVERN""" ;
+  gsk:authorityBoundary """Admission grants epistemic standing only within the declared boundary. It does not grant execution authority.""" ;
+  gsk:evidence """Source identity, revision or digest, admission rationale, provenance, residual unknowns, and the exact admitted subset.""" ;
+  gsk:falsifiers """Admission fails on mutable unpinned inputs, contradictory facts left unresolved, inferred meaning presented as observation, or hidden source dependencies.""" ;
+  gsk:composition """Receives observations from `capability-orientation` and `preserve-fence`; feeds `observe-admit` and `contract-first`.""" ;
+  gsk:standingRule """Unpinned or contradictory source claims remain UNKNOWN or REFUSED rather than silently admitted.""" ;
+  gsk:sourceCoordinate """seanchatmangpt/agile-protocol-specification@b5916330905195b124409ca0e857f43b897ffc80""" ;
+  gsk:sourcePath """specification-guide/src/v26_8_24/00_source_admission_and_paradigm_reset.md""" .
+
+gsk:observe_admit a gsk:Skill ;
+  gsk:skillName """observe-admit""" ;
+  gsk:title """Observe and Admit""" ;
+  gsk:description """Transform partial observations into a bounded admitted knowledge set without erasing uncertainty.""" ;
+  gsk:whenToUse """Use when observations are incomplete, heterogeneous, or mixed with hypotheses and a lawful manufacturing boundary must be established.""" ;
+  gsk:law """`O*` is bounded admitted knowledge, not everything observed and not everything believed. Unknowns remain first-class.""" ;
+  gsk:procedure """1. Collect observations at exact coordinates.
+2. Normalize identities and provenance.
+3. Separate observations from hypotheses and interpretations.
+4. Test contradictions and missing obligations.
+5. Admit the smallest sufficient truth set while preserving relevant uncertainty.
+6. Publish exclusions and unknowns alongside `O*`.""" ;
+  gsk:authorityClass """GOVERN""" ;
+  gsk:authorityBoundary """Admission cannot convert uncertainty into fact and confers no ambient DO authority.""" ;
+  gsk:evidence """Observation coordinates, provenance links, admission decisions, exclusions, contradictions, and unknowns.""" ;
+  gsk:falsifiers """The skill fails if inferred facts are silently promoted, contradictory observations are collapsed, or required unknowns disappear from the contract.""" ;
+  gsk:composition """Consumes `source-admission`; feeds `contract-first`, `dfcm`, and `reconstitution`.""" ;
+  gsk:standingRule """Evidence gaps stay UNKNOWN or PARTIAL_ALIVE at their exact boundary.""" ;
+  gsk:sourceCoordinate """seanchatmangpt/agile-protocol-specification@b5916330905195b124409ca0e857f43b897ffc80""" ;
+  gsk:sourcePath """specification-guide/src/v26_8_24/00_source_admission_and_paradigm_reset.md""" .
+
+gsk:contract_first a gsk:Skill ;
+  gsk:skillName """contract-first""" ;
+  gsk:title """Contract First""" ;
+  gsk:description """Define executable semantic and behavioral law before choosing implementation.""" ;
+  gsk:whenToUse """Use before designing or changing implementation, automation, workflow, policy, integration, or generated artifacts.""" ;
+  gsk:law """The primary design object is the admitted contract graph. Implementation and verifier are sibling consequences of common authority.""" ;
+  gsk:procedure """1. Name semantic subjects and identity rules.
+2. Define preconditions, postconditions, invariants, refusals, and cardinalities.
+3. Define authority, idempotency, replay, evidence, resource, compatibility, and standing rules.
+4. Identify independent candidate falsifiers.
+5. Only then enumerate implementation and verification candidates.
+6. Refuse implementation choices that silently redefine the contract.""" ;
+  gsk:authorityClass """CONSTRUCT""" ;
+  gsk:authorityBoundary """This skill constructs contract artifacts and does not authorize executing resulting implementations.""" ;
+  gsk:evidence """Contract identity, admitted source coordinate, invariant set, refusal set, authority requirements, evidence obligations, and falsifier links.""" ;
+  gsk:falsifiers """A contract is insufficient if implementation must invent material semantics, authority is implicit, evidence is undefined, or tests become the only specification.""" ;
+  gsk:composition """Consumes `observe-admit`; precedes `dfcm`, `ggen-first`, and `skill-falsifier`.""" ;
+  gsk:standingRule """A mechanism cannot earn stronger standing than the contract and evidence boundary it was qualified against.""" ;
+  gsk:sourceCoordinate """seanchatmangpt/agile-protocol-specification@b5916330905195b124409ca0e857f43b897ffc80""" ;
+  gsk:sourcePath """specification-guide/src/v26_8_24/05_contract_first_ggen_first.md""" .
+
+gsk:dfcm a gsk:Skill ;
+  gsk:skillName """dfcm""" ;
+  gsk:title """Design for Combinatorial Maximalism""" ;
+  gsk:description """Maximize the reversible lawful candidate frontier before irreversible selection.""" ;
+  gsk:whenToUse """Use when multiple designs, tools, compositions, implementations, or falsifier strategies could satisfy an admitted contract.""" ;
+  gsk:law """Early commitment is a cost. Optimize for the largest lawful economically qualifiable design frontier, not the fewest artifacts.""" ;
+  gsk:procedure """1. Preserve incumbent truth and constraints.
+2. Fence irreversible choices.
+3. Enumerate known patterns, compositions, tools, parameters, and novel candidates.
+4. Enumerate adversarial failure conditions in parallel.
+5. Exclude unlawful or dominated candidates with explicit reasons.
+6. Qualify candidates independently.
+7. Delay irreversible selection until evidence justifies it.
+8. Promote successful novelty into reusable manufacturing knowledge.""" ;
+  gsk:authorityClass """SELECT""" ;
+  gsk:authorityBoundary """DfCM expands and ranks candidate space but does not grant DO authority to any candidate.""" ;
+  gsk:evidence """Candidate inventory, exclusions, rollback paths, falsifiers, qualification evidence, selection rationale, and residual frontier.""" ;
+  gsk:falsifiers """DfCM fails when options are pruned by habit or sunk cost, candidates lack falsifiers or rollback, or selection precedes qualification.""" ;
+  gsk:composition """Compose with `adversarial-requirements`, `ggen-first`, `skill-falsifier`, `skill-qualifier`, and `skill-promoter`.""" ;
+  gsk:standingRule """Candidate generation itself is not ALIVE; only bounded qualified claims may earn standing.""" ;
+  gsk:sourceCoordinate """seanchatmangpt/agile-protocol-specification@b5916330905195b124409ca0e857f43b897ffc80""" ;
+  gsk:sourcePath """specification-guide/src/v26_8_24/04_dfcm_and_adversarial_manufacturing_search.md""" .
+
+gsk:adversarial_requirements a gsk:Skill ;
+  gsk:skillName """adversarial-requirements""" ;
+  gsk:title """Adversarial Requirements""" ;
+  gsk:description """Turn objections and attack scenarios into explicit candidate falsifiers before promoting them to requirements.""" ;
+  gsk:whenToUse """Use when safety, liability, reliability, governance, replay, or architecture could be invalidated by plausible counterexamples.""" ;
+  gsk:law """Criticism is a source of unexplored state space, not automatically truth. A discovered adversarial win becomes a candidate falsifier that must be exercised and admitted or rejected by evidence.""" ;
+  gsk:procedure """1. State the bounded claim under attack.
+2. Generate failure conditions from objectives independent of the constructor.
+3. Express each as an observable falsifier.
+4. Prioritize catastrophic, authority, replay, evidence, process-fitness, and scale failures.
+5. Exercise falsifiers against real boundaries when applicable.
+6. Convert surviving falsifiers into explicit contract requirements or typed residual risks.""" ;
+  gsk:authorityClass """VERIFY""" ;
+  gsk:authorityBoundary """This skill challenges claims and may recommend refusal; it cannot itself authorize consequential remediation.""" ;
+  gsk:evidence """Claim coordinate, falsifier definition, sabotage fixture, observed result, and requirement or rejection decision.""" ;
+  gsk:falsifiers """The adversarial process fails if attacks are rhetorical, unexercised, share the constructor's assumptions, or cannot alter standing when they succeed.""" ;
+  gsk:composition """Feeds `contract-first`, `dfcm`, `skill-falsifier`, and `skill-auditor`.""" ;
+  gsk:standingRule """A successful falsifier lowers or refuses standing at the exact claim boundary until repaired and requalified.""" ;
+  gsk:sourceCoordinate """seanchatmangpt/agile-protocol-specification@b5916330905195b124409ca0e857f43b897ffc80""" ;
+  gsk:sourcePath """specification-guide/src/v26_8_24/15_falsifiers_and_research_agenda.md""" .
