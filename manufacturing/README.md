@@ -1,21 +1,35 @@
 # Manufacturing closure
 
-The repository is intentionally **ggen-first without pretending ggen execution already occurred**.
+This directory closes the gap between the existing APS-derived skill corpus and a GGen-owned projection model **without discarding behavior before equivalence is observed**.
 
-Current active skills are portable projections adapted from the pinned APS source. The next manufacturing closure is to admit or create a qualified `ggen-skills` pack whose canonical input is `ontology/ggen-skills.ttl`, whose projections are `skills/*/SKILL.md`, and whose verifier proves byte-identical replay.
+## Preserve → prove → invert
 
-Until that exact ggen execution is observed and receipted, the ggen-manufacturing dimension remains `PARTIAL_ALIVE`. Do not add an unexecuted `ggen.toml` merely to upgrade appearance.
+The transition is deliberately two-stage.
 
-Promotion acceptance:
+### Stage 1 — equivalence bootstrap
 
-```text
-pinned ggen binary
-+ admitted skill ontology
-+ qualified skill pack/templates
--> manufacture skills tree
--> validate skill contracts
--> second manufacture
--> byte-identical comparison
--> receipt
--> exact-head CI
-```
+The currently admitted `skills/*/SKILL.md`, `AGENTS.md`, and `README.md` are preserved as predecessor observations. `tools/export_skill_content.py` deterministically projects those bytes plus routing metadata into a public-ontology semantic candidate at `manufacturing/ontology/skill-content.ttl`.
+
+The exact-head Core Team DoD workflow then:
+
+1. binds the candidate SHA;
+2. validates the existing skill constitution;
+3. exports the semantic candidate;
+4. snapshots the preserved projection bytes;
+5. installs a checksum-pinned GGen producer;
+6. executes `ggen sync run` against that semantic candidate;
+7. verifies the GGen receipt;
+8. requires `git diff --exit-code -- skills AGENTS.md README.md`;
+9. executes GGen a second time;
+10. requires byte-identical replay;
+11. emits the exported ontology, receipts, snapshots, and exact-subject receipt as workflow artifacts.
+
+A mismatch is `REFUSED[NON_EQUIVALENT_RECONSTITUTION]`, not permission to hand-fix generated files.
+
+### Stage 2 — authority inversion
+
+Only after Stage 1 succeeds may the exact exported ontology artifact be committed and promoted to canonical manufacturing source. At that point normal development edits semantic source and GGen owns the projections. The bootstrap exporter becomes a preservation/equivalence checker rather than the normal source path.
+
+## Authority
+
+The manufacturing rail is read-only with respect to GitHub. It has no push, merge, deployment, credential-brokering, or production `DO` authority. Successful manufacture can establish standing only for the exact subject and exact consequence it observed.
